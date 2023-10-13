@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une association{% endblock %}
+{% block nav %}
+    <a class="btn btn-sm btn-info m-2" href="{{ path('app_admin_home') }}" >Retour</a>
+{% endblock %}
+
+{% block content %}
+    <div class="text-center mb-5">
+
+        <h2 class="text-center m-3">Gestion des associations</h2>
+        <a href="{{ path('app_add_association') }}" class="btn btn-info ">Ajouter une association</a>
+    </div>
+
+
+    <div class="row text-center justify-content-center">
+        {% for association in associations %}
+            <div class="col-md-6 col-sm-10 col-lg-3 mt-3">
+                <div class="card bg-dark-subtle" >
+                    <div class="card-body">
+                        <h5 class="card-title">{{ association.name }}</h5>
+                        <h5 class="card-title">{{ association.phone }}</h5>
+                        <h5 class="card-title">{{ association.email }}</h5>
+                        <a href="{{ path('app_admin_detail_association', {'id' : association.id}) }}">Detail</a> | <a href="{{path('app_remove_association', {'id' : association.id})}}">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

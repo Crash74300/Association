@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des associations{% endblock %}
+
+
+
+{% block content%}
+
+<h1 class="text-center m-3">Administration des associations</h1>
+    <section class="row p-5">
+        <div class="col-md-4 ">
+            <ul class="list-group ">
+                <li class="list-group-item text-bg-danger" aria-disabled="true">Alerte</li>
+            </ul>
+
+        </div>
+
+        <div class="col">
+            <div class="row p-2">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Modifier les documents</h5>
+                            <p class="card-text">Modifier les documents à disposition des associations.</p>
+                            <a href="#" class="btn btn-primary">Je modifie</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Planning des salles</h5>
+                            <p class="card-text">Gestion du planning d'utilisation des salles.</p>
+                            <a href="#" class="btn btn-primary">Accéder au planning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Envoyer un email aux associations</h5>
+                            <p class="card-text">Partager une information à toutes les associations.</p>
+                            <a href="#" class="btn btn-primary">Envoyer un message</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Les demandes des associations</h5>
+                            <p class="card-text">Parcourir les demandes des associations.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestion des associations</h5>
+                            <p class="card-text">Consulter, modifier, supprimer ou créer une association.</p>
+                            <a href="{{ path('app_admin_association') }}" class="btn btn-success">Modifier</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Créer un nouvel administrateur</h5>
+                            <p class="card-text">Outil de création d'un nouvel administrateur.</p>
+                            <p class="card-text text-danger">Attention!!<br> Un administrateur aura le contrôle total de l'application.</p>
+                            <a href="{{ path('app_add_admin') }}" class="btn btn-danger">Créer</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

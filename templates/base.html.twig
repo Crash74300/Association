@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{% block title %}Gestion des associations{% endblock %}</title>
+        <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 
-        {% block javascripts %}
-        {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body data-bs-theme="dark">
+    {% if (app.user) %}
+
+    <header>
+        <nav class="navbar bg-body-secondary p-2">
+            <form class="container-fluid">
+<div>
+{% if (app.user.roles[0] == 'ROLE_ADMIN') %}
+    <a class="btn btn-sm btn-success m-2" href="{{ path('app_admin_home') }}" >Accueil</a>
+{% else %}
+    <a class="btn btn-sm btn-success m-2" href="{{ path('app_association_home') }}" >Accueil</a>
+{% endif %}{% block nav %}{% endblock %}
+</div>
+                <a class="btn btn-sm btn-danger float-end" href="{{ path('app_logout') }}" type="button">Se déconnecter</a>
+
+            </form>
+        </nav>
+
+    </header>
+    {% endif %}
+
+{% for message in app.flashes('warning') %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
     </body>
 </html>

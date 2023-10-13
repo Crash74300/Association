@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des associations{% endblock %}
+
+
+{% block content%}
+
+    <h1 class="text-center m-3">{{app.user.name}}</h1>
+    <h3 class="text-center">Votre association compte {{ app.user.membres|length }} membres.</h3>
+
+    <section class="row p-5">
+
+        <div class="col">
+            <div class="row p-2">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Communication</h5>
+                            <p class="card-text">Demande de communication pour un événnement.</p>
+                            <a href="#" class="btn btn-primary">Je communique!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Demander une salles</h5>
+                            <p class="card-text">Demander l'utilisation d'une salle ou d'un lieu communale.</p>
+                            <a href="#" class="btn btn-primary">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Demande de subvention</h5>
+                            <p class="card-text">Demander une subvention à la mairie.</p>
+                            <a href="#" class="btn btn-primary">Faire une demande</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Demande d'autorisation</h5>
+                            <p class="card-text">Utilisation du domaine public, débit de boissons, matériel, vente au déballage...</p>
+                            <a href="#" class="btn btn-primary">Faire une demande</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Composition de l'association</h5>
+                            <section class="row">
+
+
+                                {% if app.user.membres|length == 0 %}
+                                    <p class="text-center">Vous n'avez pas encore ajouté de membre à votre association</p>
+                                {% else %}
+
+                                {% endif %}
+
+
+                            </section>
+
+                            <a href="{{ path('app_membres') }}" class="btn btn-success">Gestion des membres</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

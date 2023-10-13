@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une association{% endblock %}
+{% block nav %}
+    <a class="btn btn-sm btn-info m-2" href="{{ path('app_admin_association') }}" >Retour</a>
+{% endblock %}
+
+{% block content %}
+    <div class="text-center mb-5">
+
+        <h2 class="text-center m-3">Gestion des associations</h2>
+
+        <div class="card bg-info-subtle" style="width: auto">
+        <div class="card-body">
+        <h5 class="card-title">{{ association.name }}</h5>
+            <h5 class="card-title">{{ association.phone }}</h5>
+        <h5 class="card-title">{{ association.email }}</h5>
+
+        </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        {% for membre in association.membres %}
+            <div class="col-md-4 col-sm-6 col-lg-3 mt-3 ">
+                <div class="card bg-dark-subtle" style="width: 15rem">
+                    <div class="card-body">
+                        <h5 class="card-text text-warning text-center">{{ membre.role}}</h5>
+                        <h5 class="card-title">{{ membre.nom }}</h5>
+                        <h5 class="card-title">{{ membre.prenom }}</h5>
+                        <p class="card-text">{{ membre.telephone}}</p>
+                        <p class="card-text">{{ membre.adresse}}</p>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
