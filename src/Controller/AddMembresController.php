@@ -21,13 +21,13 @@ class AddMembresController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/membres', name: 'app_membres')]
+    #[Route('/association/membres', name: 'app_membres')]
     public function index(): Response
     {
         return $this->render('add_membres/index.html.twig');
     }
 
-    #[Route('/add/membres', name: 'app_add_membres')]
+    #[Route('/association/add/membres', name: 'app_add_membres')]
     public function add(Request $request): Response
     {
 
@@ -52,6 +52,7 @@ class AddMembresController extends AbstractController
             $membre->setUser($this->getUser());
             $this->entityManager->persist($membre);
             $this->entityManager->flush();
+            $this->addFlash('notice', 'Le membre à bien été créé.');
             return $this->redirectToRoute('app_membres');
 
         } else {
@@ -64,7 +65,7 @@ class AddMembresController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-    #[Route('/modifier/membres/{id}', name: 'app_edit_membres')]
+    #[Route('/association/modifier/membres/{id}', name: 'app_edit_membres')]
     public function edit(Request $request, $id): Response
     {
 
@@ -79,6 +80,7 @@ class AddMembresController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
 
             $this->entityManager->flush();
+            $this->addFlash('notice', 'Le membre à bien été modifié.');
             return $this->redirectToRoute('app_membres');
 
         }
@@ -87,7 +89,7 @@ class AddMembresController extends AbstractController
         ]);
     }
 
-    #[Route('/supprimer/membres/{id}', name: 'app_remove_membres')]
+    #[Route('/association/supprimer/membres/{id}', name: 'app_remove_membres')]
     public function remove($id): Response
     {
 

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié - Gestion des associations Magland{% endblock %}
+
+{% block content %}
+    <div class="position-fixed ">
+        <img class="h-25 w-25" src="{{ asset('assets/images/site/soleil.png') }}">
+
+    </div>
+    {% for message in app.flashes('notice')%}
+        <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+    {% endfor %}
+    <div class="d-flex justify-content-center text-center">
+        <form method="post" class="w-30 h-auto mt-3 z-1">
+            <h1 class="h3 mb-3 font-weight-normal">Réinitialiser votre mot de passe</h1>
+
+            <label for="inputName" class="mb-3">Votre nom d'utilisateur</label>
+            <input type="text" name="name" id="inputName" class="form-control mb-3" required autofocus>
+
+
+            <button class="btn btn-lg btn-primary mt-3 z-1" type="submit">
+                Réinitialiser le mot de passe
+            </button>
+            <hr>
+            <p class="text-center">Ou souhaitez-vous <a href="{{ path('app_login') }}">Vous connecter</a></p>
+        </form>
+        <div class="container-fluid position-absolute bottom-0 text-center w-100 z-0">
+            <img class="img-fluid w-80 " src="{{ asset('assets/images/site/association.png') }}">
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,23 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Administration des associations{% endblock %}
+{% block title %}Gestion de l'association{% endblock %}
 
 
 {% block content%}
 
     <h1 class="text-center m-3">{{app.user.name}}</h1>
-    <h3 class="text-center">Votre association compte {{ app.user.membres|length }} membres.</h3>
+    {% for message in app.flashes('notice')%}
+        <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+    {% endfor %}
+    <div class="row justify-content-around">
+<section class="col-sm-10 col-md-10 col-lg-5 text-center text-lg-start text-lg-start">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Information de votre association</h3>
+                    <p class="">Votre association compte {{ app.user.membres|length }} membres.</p>
+                    <p class="">Votre email de contact: {{ app.user.email }}</p>
+                    <p class="">Votre numéro de téléphone: {{ app.user.phone }}</p>
+                    <a href="{{ path('app_edit_association', {'id' : app.user.id}) }}" class="btn btn-warning">Modifier mes informations</a>
 
-    <section class="row p-5">
+                    <a href="{{ path('app_association_password', {'id' : app.user.id}) }} }}" class="btn btn-danger">Modifier mon mot de passe</a>
+        </div>
+    </div>
+    <div class="container-fluid bottom-0 text-center w-100">
+        <img class="img-fluid w-80 " src="{{ asset('assets/images/site/association.png') }}">
+    </div>
+</section>
 
-        <div class="col">
+    <section class="col-sm-10 col-lg-6 text-center">
+        <div class="row<">
             <div class="row p-2">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Communication</h5>
                             <p class="card-text">Demande de communication pour un événnement.</p>
-                            <a href="#" class="btn btn-primary">Je communique!</a>
+                            <a href="{{path('app_demande_communication')}}" class="btn btn-primary">Je communique!</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +74,7 @@
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Composition de l'association</h5>
-                            <section class="row">
+                            <div class="row">
 
 
                                 {% if app.user.membres|length == 0 %}
@@ -66,7 +84,7 @@
                                 {% endif %}
 
 
-                            </section>
+                            </div>
 
                             <a href="{{ path('app_membres') }}" class="btn btn-success">Gestion des membres</a>
 
@@ -76,7 +94,7 @@
             </div>
         </div>
     </section>
-
+</div>
 
 
 {% endblock %}

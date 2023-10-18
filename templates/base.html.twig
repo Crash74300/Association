@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %}Gestion des associations{% endblock %}</title>
         <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
     </head>
     <body data-bs-theme="dark">
     {% if (app.user) %}
 
     <header>
-        <nav class="navbar bg-body-secondary p-2">
+        <nav class="navbar bg-primary bg-gradient p-2" style="--bs-bg-opacity: .5;">
             <form class="container-fluid">
 <div>
 {% if (app.user.roles[0] == 'ROLE_ADMIN') %}
@@ -36,5 +37,6 @@
 
     {% block content %}
     {% endblock %}
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     </body>
 </html>

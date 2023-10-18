@@ -21,7 +21,7 @@ class AddAdminController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/add/admin', name: 'app_add_admin')]
+    #[Route('/admin/add/admin', name: 'app_add_admin')]
     public function index(Request $request, UserPasswordHasherInterface $encoder): Response
     {
         $user = new User();

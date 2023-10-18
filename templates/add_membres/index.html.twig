@@ -8,25 +8,34 @@
     <div class="text-center mb-5">
         <h1 class="text-center m-3">{{app.user.name}}</h1>
         <h2 class="text-center m-3">Gestion des membres de l'association</h2>
+        {% for message in app.flashes('notice')%}
+            <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+        {% endfor %}
         <a href="{{ path('app_add_membres') }}" class="btn btn-info ">Ajouter un membre</a>
     </div>
 
-        <div>
+        <div class="container">
             {% if app.user.membres|length == 0 %}
                 <p class="text-center">Vous n'avez pas encore ajouté de membre à votre association</p>
             {% else %}
 
-        <div class="row">
+        <div class="row  justify-content-center ">
                 {% for membre in app.user.membres %}
-            <div class="col-md-4 col-sm-6 col-lg-3 mt-3 ">
-                <div class="card bg-dark-subtle" style="width: 15rem">
+            <div class="col-md-5 col-sm-12 col-lg-4 mt-3">
+                <div class="card bg-dark-subtle">
                     <div class="card-body">
+                        <div class="recipe_images float-end">
+                            <img style="max-width: 100px; max-height: 150px" src="{{ vich_uploader_asset(membre, 'imageFile') }}">
+                        </div>
                         <h5 class="card-title">{{ membre.nom }}</h5>
+
+
                         <h5 class="card-title">{{ membre.prenom }}</h5>
                         <p class="card-text">{{ membre.telephone}}</p>
                         <p class="card-text">{{ membre.adresse}}</p>
                         <h5 class="card-text text-warning">{{ membre.role}}</h5>
-                        <a href="{{path('app_edit_membres', { 'id' : membre.id}) }}">Modifier</a> | <a href="{{path('app_remove_membres', {'id' : membre.id})}}">Supprimer</a>
+                        <a class="btn btn-sm btn-success" href="{{path('app_edit_membres', { 'id' : membre.id}) }}">Modifier</a> |
+                        <a class="btn btn-sm btn-danger" href="{{path('app_remove_membres', {'id' : membre.id})}}">Supprimer</a>
                     </div>
                 </div>
             </div>

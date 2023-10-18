@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AddMembresType extends AbstractType
 {
@@ -30,7 +31,14 @@ class AddMembresType extends AbstractType
                     'Vice trésorier' => 'Vice trésorier',
                 ],
             ])
-
+->add('imageFile', VichImageType::class,[
+    'label' => 'Photo de profil',
+    'required'      => false,
+    'allow_delete'  => false,
+    'label_attr' => [
+        'class' => 'form-label mt-4'
+    ]
+])
             ->add('submit', SubmitType::class,[
                 'label' => 'Valider',
             ])

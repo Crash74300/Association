@@ -11,7 +11,9 @@
         <h2 class="text-center m-3">Gestion des associations</h2>
         <a href="{{ path('app_add_association') }}" class="btn btn-info ">Ajouter une association</a>
     </div>
-
+    {% for message in app.flashes('notice')%}
+        <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+    {% endfor %}
 
     <div class="row text-center justify-content-center">
         {% for association in associations %}
@@ -21,13 +23,15 @@
                         <h5 class="card-title">{{ association.name }}</h5>
                         <h5 class="card-title">{{ association.phone }}</h5>
                         <h5 class="card-title">{{ association.email }}</h5>
-                        <a href="{{ path('app_admin_detail_association', {'id' : association.id}) }}">Detail</a> | <a href="{{path('app_remove_association', {'id' : association.id})}}">Supprimer</a>
+                        <a class="btn btn-sm btn-primary" href="{{ path('app_admin_detail_association', {'id' : association.id}) }}">Detail</a> |
+                        <a class="btn btn-sm btn-warning" href="{{ path('app_admin_edit_association', {'id' : association.id}) }}">Modifier</a> |
+                        <a class="btn btn-sm btn-danger" href="{{path('app_remove_association', {'id' : association.id})}}" >Supprimer</a>
                     </div>
                 </div>
             </div>
 
-
         {% endfor %}
     </div>
+
 
 {% endblock %}
