@@ -48,9 +48,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Membres::class, orphanRemoval: true)]
     private Collection $membres;
 
+
     public function __construct()
     {
         $this->membres = new ArrayCollection();
+        $this->communications = new ArrayCollection();
     }
 
 
@@ -176,4 +178,5 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

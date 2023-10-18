@@ -8,12 +8,14 @@
 {% block content %}
     <div class="text-center mb-5">
         <h2 class="text-center m-3">{{app.user.name}}</h2>
-        <h2 class="text-center m-3">Modifier les informations</h2>
+        <h2 class="text-center m-3">Demande de communication</h2>
     </div>
     {{ form_start(form) }}
     <div class="row justify-content-center ">
-        <div class="col-10">{{ form_row(form.description) }}</div>
 
+        <div class="col-10">{{ form_row(form.description) }}</div>
+        <div class="col-10 col-md-5">{{ form_row(form.imageFile1) }}</div>
+        <div class="col-10 col-md-5">{{ form_row(form.imageFile2) }}</div>
         <div class="text-center">{{ form_row(form.submit) }}</div>
 
     </div>

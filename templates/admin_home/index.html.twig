@@ -9,9 +9,14 @@
 
 <h1 class="text-center m-3">Administration des associations</h1>
     <section class="row p-5">
-        <div class="col-md-4 ">
-            <ul class="list-group ">
-                <li class="list-group-item text-bg-danger" aria-disabled="true">Alerte</li>
+        <div class="col-md-4 border border-2 border-dark-subtle p-2">
+            {% if communications|length == 0 %}
+                <h5 class="text-center text-warning">Vous êtes à jour des demandes.</h5>
+            {% endif %}
+                {% for communication in communications %}
+                <p class="list-group-item text-bg-danger rounded p-2 text-center" aria-disabled="true">Demande de communication de l'association {{ communication.name }} <a class="btn btn-sm btn-primary m-2" href="{{path('app_admin_communication')}}" >Voir</a></p>
+
+                {% endfor %}
             </ul>
 
         </div>
@@ -52,7 +57,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Les demandes des associations</h5>
                             <p class="card-text">Parcourir les demandes des associations.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{path('app_admin_communication')}}" class="btn btn-primary">Voir les demandes</a>
                         </div>
                     </div>
                 </div>
