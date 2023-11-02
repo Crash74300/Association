@@ -6,10 +6,87 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-center mb-5">
+
+    <div class="text-center mb-3">
         <h2 class="text-center m-3">{{app.user.name}}</h2>
         <h2 class="text-center m-3">Demande de communication</h2>
     </div>
+    <section>
+    <div class="row m-5 justify-content-center justify-content-md-start">
+        <div class="col-12 col-md-8 h-50 text-black text-center rounded-5" style="background-color:#CF9282">
+            <h5 style="font-style: italic">Site internet / Facebook</h5>
+            <div class="row justify-content-center justify-content-md-start">
+                <div class="col-6 col-md-2"><img class="justify-content-start" width="100px" src="{{ asset('assets/images/site/facebook.png') }}"></div>
+                <div class="col-12 col-md-8"><p class="h5">Vous organisez un événement ? Le service communication peut créer un visuel que nous aurons le plaisir de publier sur la page Facebook et le site internet de la commune!
+                        Vous pouvez également nous fournir votre propre visuel.</p></div>
+                <div class="col-6 col-md-2">
+                    <img class="float-md-end" width="100px" src="{{ asset('assets/images/site/internet.png') }}">
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <div class="row justify-content-center " >
+            <div class="col-10 col-md-10 rounded-5 p-3" style="background-color:#CF9282">
+                <h2 class="text-center text-black">Exemples</h2>
+                <div class="row text-center justify-content-center" >
+                    <div class="col-10 col-md-4"><img class="" width="200px" src="{{ asset('assets/images/site/saj.png') }}"></div>
+
+                    <div class="col-10 col-md-4">
+                        <img class="" width="200px" src="{{ asset('assets/images/site/gouter.png') }}"></div>
+                    <div class="col-10 col-md-4"><img class="" width="200px" src="{{ asset('assets/images/site/sang.jpg') }}"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="row m-5 justify-content-center justify-content-md-end">
+            <div class="col-12 col-md-8 h-50 text-black text-center rounded-5" style="background-color:#90CF82">
+                <h5 style="font-style: italic">Grilles</h5>
+                <div class="row justify-content-center justify-content-md-start p-3">
+                    <div class="col-12 col-md-8"><p class="h5">Vous organisez un événement ? Le service communication peut créer un visuel que nous aurons le plaisir de publier sur la page Facebook et le site internet de la commune!
+                            Vous pouvez également nous fournir votre propre visuel.</p></div>
+                    <img class="rounded-5" style="width: 200px" src="{{ asset('assets/images/site/grilles.jpg') }}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row m-5 justify-content-center justify-content-md-start">
+            <div class="col-12 col-md-8 h-50 text-black text-center rounded-5" style="background-color:#82C2CF">
+                <h5 style="font-style: italic">Panneau lumineux</h5>
+                <div class="row justify-content-center justify-content-md-start">
+                    <div class="col-6 col-md-2"><img class="justify-content-start" width="100px" src="{{ asset('assets/images/site/facebook.png') }}"></div>
+                    <div class="col-12 col-md-8"><p class="h5">Vous organisez un événement ? Le service communication peut créer un visuel que nous aurons le plaisir de publier sur la page Facebook et le site internet de la commune!
+                            Vous pouvez également nous fournir votre propre visuel.</p></div>
+                    <div class="col-6 col-md-2">
+                        <img class="float-md-end" width="100px" src="{{ asset('assets/images/site/internet.png') }}">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center" >
+            <div class="col-10 col-md-10 rounded-5 p-3" style="background-color:#82C2CF">
+                <h2 class="text-center text-black">Exemples</h2>
+                <div class="row text-center justify-content-center" >
+                    <div class="col-10 col-md-4"><img class="" width="200px" src="{{ asset('assets/images/site/saj.png') }}"></div>
+
+                    <div class="col-10 col-md-4">
+                        <img class="" width="200px" src="{{ asset('assets/images/site/gouter.png') }}"></div>
+                    <div class="col-10 col-md-4"><img class="" width="200px" src="{{ asset('assets/images/site/sang.jpg') }}"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
     {{ form_start(form) }}
     <div class="row justify-content-center ">
 
