@@ -21,9 +21,24 @@ class AdminCommunicationController extends AbstractController
     public function index(): Response
     {
         $communication = $this->entityManager->getRepository(Communication::class)->findAll();
+        $finish = $this->entityManager->getRepository(Communication::class)->findBy(array('finish' => '1'));
 
         return $this->render('admin_home/admin_communication.html.twig', [
             'communications' => $communication,
+            'finish' => $finish,
+        ]);
+
+    }
+
+    #[Route('/admin/communication/finish', name: 'app_admin_communication_finish')]
+    public function finish(): Response
+    {
+        $communication = $this->entityManager->getRepository(Communication::class)->findAll();
+        $finish = $this->entityManager->getRepository(Communication::class)->findBy(array('finish' => '1'));
+
+        return $this->render('admin_home/admin_communication_finish.html.twig', [
+            'communications' => $communication,
+            'finish' => $finish,
         ]);
 
     }
@@ -35,7 +50,16 @@ class AdminCommunicationController extends AbstractController
         $this->entityManager->remove($communication);
         $this->entityManager->flush();
 
-    return $this->redirectToRoute('app_admin_communication');
-
+    return $this->redirectToRoute('app_admin_communication_finish');
 }
+
+    #[Route('/admin/stock/communication/{id}', name: 'app_stock_communication')]
+    public function stock($id): Response
+    {
+        $communication = $this->entityManager->getRepository(Communication::class)->findOneById($id);
+        $communication->setFinish(true);
+        $this->entityManager->flush();
+
+        return $this->redirectToRoute('app_admin_communication');
+    }
 }

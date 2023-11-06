@@ -35,11 +35,23 @@ class DemandeCommunicationController extends AbstractController
                 $communication->setPhone($this->getUser()->getPhone());
                 $communication->setEmail($this->getUser()->getEmail());
                 $communication->setCreatedAt(now());
+                if($communication->getDateStart() < now()){
+                    $this->addFlash('notice', "La date de début de la publication ne peut pas être passé.");
+                }
+                elseif($communication->getDateStop() < now()){
+                $this->addFlash('notice', "La date de fin de la publication ne peut pas être passé.");
+                }
+                elseif($communication->getDateStart() >= $communication->getDateStop()){
+                $this->addFlash('notice', "La date de début de la publication ne peut pas être supérieur ou égale à la date de fin.");
+                }
+                else{
+                    $this->entityManager->persist($communication);
+                    $this->entityManager->flush();
+                    $this->addFlash('notice', 'Votre demande à bien été envoyé.');
+                    return $this->redirectToRoute('app_association_home');
+                }
 
-                $this->entityManager->persist($communication);
-                $this->entityManager->flush();
-                $this->addFlash('notice', 'Votre demande à bien été envoyé.');
-                return $this->redirectToRoute('app_association_home');
+
 
         }
 

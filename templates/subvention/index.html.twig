@@ -1,0 +1,853 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de subvention{% endblock %}
+{% block nav %}
+    <a class="btn btn-sm btn-info m-2" href="{{ path('app_association_home') }}" >Retour</a>
+{% endblock %}
+{% block content %}
+    <div class="text-center mb-5">
+        <h1 class="text-center m-3">Formulaire de demande de subvention</h1>
+        <h2 class="text-center m-3">Pour remplir ce document, vous aurez besoin de télécharger:</h2>
+
+            <p>Le statuts de l'association</p>
+            <p>Les comptes du dernier exercice clos</p>
+            <p>Budget de l'année en cours</p>
+            <p>Attestation d'assurance</p>
+            <p>Une copie du relevé du compte courant et d'épargne de l'association au 31 décembre de l'année précédente</p>
+    </div>
+
+    <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.47111" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.47111" type="text/javascript"></script>
+    <script src="https://cdn02.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.47111" type="text/javascript"></script>
+    <script defer src="https://cdn03.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.47111" type="text/javascript"></script>
+    <script defer src="https://cdn01.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.47111" type="text/javascript"></script>
+    <script defer src="https://cdn02.jotfor.ms//js/punycode-1.4.1.min.js"></script>
+    <script src="https://cdn03.jotfor.ms/js/vendor/imageinfo.js?v=3.3.47111" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/file-uploader/fileuploader.js?v=3.3.47111"></script>
+    <script src="https://cdn02.jotfor.ms/js/payments/validategateways.js?v=3.3.47111" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/s/umd/43cbb689d86/for-pdfimporter-patch.js?v=3.3.47111" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/s/umd/43cbb689d86/for-form-branding-footer.js?v=3.3.47111" type="text/javascript" defer></script>
+    <script src="https://cdn01.jotfor.ms/s/umd/43cbb689d86/for-sanitize.js?v=3.3.47111" type="text/javascript"></script>
+    <script type="text/javascript">	JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.singleProduct = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.texts = {"confirmEmail":"E-mail does not match","pleaseWait":"Please wait...","validateEmail":"You need to validate this e-mail","confirmClearForm":"Are you sure you want to clear the form","lessThan":"Your score should be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","required":"This field is required.","requireOne":"At least one field required.","requireEveryRow":"Every row is required.","requireEveryCell":"Every cell is required.","email":"Enter a valid e-mail address","alphabetic":"This field can only contain letters","numeric":"This field can only contain numeric values","alphanumeric":"This field can only contain letters and numbers.","cyrillic":"This field can only contain cyrillic characters","url":"This field can only contain a valid URL","currency":"This field can only contain currency values.","fillMask":"Field value must fill mask.","uploadExtensions":"You can only upload following files:","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","gradingScoreError":"Score total should only be less than or equal to","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","maxDigitsError":"The maximum digits allowed is","minCharactersError":"The number of characters should not be less than the minimum value:","maxCharactersError":"The number of characters should not be more than the maximum value:","freeEmailError":"Free email accounts are not allowed","minSelectionsError":"The minimum required number of selections is ","maxSelectionsError":"The maximum number of selections allowed is ","pastDatesDisallowed":"Date must not be in the past.","dateLimited":"This date is unavailable.","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","ageVerificationError":"You must be older than {minAge} years old to submit this form.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","chooseAFile_infoMessage":"Choose a file","maxFileSize_infoMessage":"Max. file size","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","ccInvalidNumber":"Credit Card Number is invalid.","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccMissingDetails":"Please fill up the credit card details.","ccMissingProduct":"Please select at least one product.","ccMissingDonation":"Please enter numeric values for donation amount.","disallowDecimals":"Please enter a whole number.","restrictedDomain":"This domain is not allowed","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","requiredLegend":"All fields marked with * are required and must be filled.","geoPermissionTitle":"Permission Denied","geoPermissionDesc":"Check your browser's privacy settings.","geoNotAvailableTitle":"Position Unavailable","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoTimeoutTitle":"Timeout","geoTimeoutDesc":"Please check your internet connection and try again.","appointmentSelected":"You’ve selected {time} on {date}","noSlotsAvailable":"No slots available","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","multipleError":"There are {count} errors on this page. Please correct them before moving on.","oneError":"There is {count} error on this page. Please correct it before moving on.","doneMessage":"Well done! All errors are fixed.","doneButton":"Done","reviewSubmitText":"Review and Submit","nextButtonText":"Next","prevButtonText":"Previous","seeErrorsButton":"See Errors","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","soldOut":"Sold Out","justSoldOut":"Just Sold Out","selectionSoldOut":"Selection Sold Out","subProductItemsLeft":"({count} items left)","startButtonText":"START","submitButtonText":"Submit","submissionLimit":"Sorry! Only one entry is allowed. Multiple submissions are disabled for this form.","reviewBackText":"Back to Form","seeAllText":"See All","progressMiddleText":"of","fieldError":"field has an error.","error":"Error"};
+        JotForm.newPaymentUI = true;
+        JotForm.importedPDF = "https://eu.jotform.com/uploads/amalesieux/form_files/pfc_fl_65448279868de_demande_de_subvention_pour_2024.pdf?nc=1";
+        JotForm.importedPDFSettings = {"isConnected":"Yes","enableThumbnail":"Yes","hasPreviewButton":"Yes","startButtonText":"Remplir le formulaire","formType":"legacyForm","welcomeThumbnail":""};
+
+        JotForm.setConditions([{"action":[{"id":"action_1698994450261","visibility":"Show","isError":false,"field":"51"},{"id":"action_1698994419244","visibility":"Show","isError":false,"field":"50"}],"id":"1698994460374","index":"0","link":"Any","priority":"0","terms":[{"id":"term_1698994419244","field":"49","operator":"isFilled","value":"","isError":false}],"type":"field"}]);	JotForm.clearFieldOnHide="disable";
+        JotForm.submitError="jumpToFirstError";
+        window.addEventListener('DOMContentLoaded',function(){window.brandingFooter.init({"formID":233060728077052,"campaign":"powered_by_jotform_le","isCardForm":false,"isLegacyForm":true})});	JotForm.isFullSource = true;
+
+        JotForm.init(function(){
+            /*INIT-START*/
+            if (window.JotForm && JotForm.accessible) $('input_36').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_40').setAttribute('tabindex',0);
+            JotForm.setPhoneMaskingValidator( 'input_41_full', '\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023' );
+
+            JotForm.calendarMonths = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewMonths) JotForm.calenderViewMonths = {};  JotForm.calenderViewMonths[71] = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewDays) JotForm.calenderViewDays = {};  JotForm.calenderViewDays[71] = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarDays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarOther = {"today":"Aujourd'hui"};
+            var languageOptions = document.querySelectorAll('#langList li');
+            for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+                languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("71", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); }, 0); });
+            }
+            JotForm.onTranslationsFetch(function() { JotForm.setCalendar("71", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); });
+            if (window.JotForm && JotForm.accessible) $('input_45').setAttribute('tabindex',0);
+            JotForm.setPhoneMaskingValidator( 'input_47_full', '\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023' );
+            if (window.JotForm && JotForm.accessible) $('input_49').setAttribute('tabindex',0);
+            JotForm.setPhoneMaskingValidator( 'input_50_full', '\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023.\u0023\u0023' );
+            if (window.JotForm && JotForm.accessible) $('input_65').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_84').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_85').setAttribute('tabindex',0);
+
+            JotForm.calendarMonths = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewMonths) JotForm.calenderViewMonths = {};  JotForm.calenderViewMonths[110] = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewDays) JotForm.calenderViewDays = {};  JotForm.calenderViewDays[110] = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarDays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarOther = {"today":"Aujourd'hui"};
+            var languageOptions = document.querySelectorAll('#langList li');
+            for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+                languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("110", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); }, 0); });
+            }
+            JotForm.onTranslationsFetch(function() { JotForm.setCalendar("110", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); });
+            if (window.JotForm && JotForm.accessible) $('input_112').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_113').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_114').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_122').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_123').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_124').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_125').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_126').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_127').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_128').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_129').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_130').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_131').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_132').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_133').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_134').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_135').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_136').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_137').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_138').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_139').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_140').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_141').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_142').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_143').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_144').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_145').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_146').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_164').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_165').setAttribute('tabindex',0);
+
+            JotForm.calendarMonths = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewMonths) JotForm.calenderViewMonths = {};  JotForm.calenderViewMonths[172] = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewDays) JotForm.calenderViewDays = {};  JotForm.calenderViewDays[172] = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarDays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarOther = {"today":"Aujourd'hui"};
+            var languageOptions = document.querySelectorAll('#langList li');
+            for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+                languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("172", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); }, 0); });
+            }
+            JotForm.onTranslationsFetch(function() { JotForm.setCalendar("172", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); });
+            if (window.JotForm && JotForm.accessible) $('input_171').setAttribute('tabindex',0);
+            JotForm.alterTexts({"ageVerificationError":"Vous devez avoir plus de {Ageminimum} ans pour envoyer ce formulaire.","alphabetic":"Ce champ ne peut contenir que des lettres","alphanumeric":"Ce champ ne peut contenir que des lettres et des chiffres.","appointmentSelected":"Vous avez sélectionné {time} le {date}","ccDonationMinLimitError":"Le montant minimum est de {minAmount} {currency}","ccInvalidCVC":"Le numéro CVC est invalide.","ccInvalidExpireDate":"La date d'expiration est invalide.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccInvalidNumber":"Le numéro de la carte bancaire est invalide.","ccMissingDetails":"Please fill up the credit card details.","ccMissingDonation":"Veuillez saisir des valeurs numériques pour le montant des dons.","ccMissingProduct":"Veuillez sélectionner au moins un produit.","characterLimitError":"Trop de caractères. La limite est de","characterMinLimitError":"Nombre de caractères insuffisant. Le nombre minimum est de","chooseAFile_infoMessage":"Choisissez un fichier","confirmClearForm":"Êtes-vous certain de vouloir supprimer les inscriptions de ce formulaire ?","confirmEmail":"L'adresse e-mail ne correspond pas","currency":"Ce champ ne peut contenir que des valeurs monétaires.","cyrillic":"Ce champ ne peut contenir que des caractères cyrilliques","dateInvalid":"Ce format de date n'est pas valide. Le format de la date est {format}","dateInvalidSeparate":"Cette date n'est pas valide. Veuillez saisir une date valide {element}.","dateLimited":"Cette date est indisponible.","disallowDecimals":"Veuillez entrer un nombre entier.","doneButton":"Terminé","doneMessage":"Bien joué ! Toutes les erreurs sont résolues.","dragAndDropFilesHere_infoMessage":"Glissez-déposez des fichiers ici","email":"Saisir une adresse courriel valide","error":"Erreur","fieldError":"le champ contient une erreur.","fillMask":"La valeur du champ doit remplir le masque.","freeEmailError":"Les comptes e-mail gratuits ne sont pas autorisés","generalError":"Ce formulaire contient des erreurs. Veuillez les corriger avant de continuer.","generalPageError":"Cette page contient des erreurs. Veuillez les corriger avant de continuer.","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoNotAvailableTitle":"Position Unavailable","geoPermissionDesc":"Check your browser's privacy settings.","geoPermissionTitle":"Permission Denied","geoTimeoutDesc":"Please check your internet connection and try again.","geoTimeoutTitle":"Timeout","gradingScoreError":"Le score total devrais être moins ou égal à","incompleteFields":"Des champs obligatoires ne sont pas remplis. Veuillez les compléter.","inputCarretErrorA":"Le nombre saisi ne peut pas être inférieur à la valeur minimum :","inputCarretErrorB":"Vous ne pouvez pas saisir une valeur supérieure à la valeur maximum :","justSoldOut":"Tout juste épuisé","lessThan":"Votre note doit être inférieure ou égale à","maxCharactersError":"The number of characters should not be more than the maximum value:","maxDigitsError":"Le nombre de chiffres maximum autorisé est de","maxFileSize_infoMessage":"Taille de fichier max.","maxSelectionsError":"The maximum number of selections allowed is ","minCharactersError":"Le nombre de caractères ne doit pas être inférieur à :","minSelectionsError":"Le nombre minimum requis de sélections est de","multipleError":"Il y a {count} erreurs sur cette page. Veuillez les corriger pour continuer.","multipleFileUploads_emptyError":"{file} est vide, veuillez sélectionner à nouveau les fichiers sans celui-ci.","multipleFileUploads_fileLimitError":"Seuls {fileLimit} téléchargements de fichiers sont autorisés.","multipleFileUploads_minSizeError":"{file} est trop petite, la taille de fichier minimale est {minSizeLimit}.","multipleFileUploads_onLeave":"Les fichiers sont en cours de téléchargement, si vous quittez maintenant le téléchargement sera annulé.","multipleFileUploads_sizeError":"{file} est trop volumineux, la taille maximale d'un fichier est de {sizeLimit}.","multipleFileUploads_typeError":"L'extension de {file} est invalide. Seules les extensions {extensions} sont autorisées.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","nextButtonText":"Suivant","noSlotsAvailable":"Aucun emplacement disponible","notEnoughStock":"Pas assez de stock pour la sélection actuelle","notEnoughStock_remainedItems":"Pas assez de stock pour la sélection actuelle ({count} articles restants)","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","numeric":"Ce champ ne peut contenir que des valeurs numériques","oneError":"Il y a {count} erreur sur cette page. Veuillez la corriger pour continuer.","pastDatesDisallowed":"La date ne doit pas se situer dans le passé.","pleaseWait":"Veuillez patienter.","prevButtonText":"Précédent","progressMiddleText":"de","required":"Ce champ est obligatoire.","requiredLegend":"Tous les champs marqués d'un * sont obligatoires et doivent être remplis.","requireEveryCell":"Toutes les cellules sont nécessaires.","requireEveryRow":"Chaque ligne est obligatoire.","requireOne":"Au moins un champ est requis","restrictedDomain":"This domain is not allowed","reviewBackText":"Retour au formulaire","reviewSubmitText":"Revoir et Envoyer","seeAllText":"Tout afficher","seeErrorsButton":"Voir les erreurs","selectionSoldOut":"Sélection épuisée","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","soldOut":"Epuisé","startButtonText":"COMMENCER","submissionLimit":"Sorry! Only one entry is allowed. Multiple submissions are disabled for this form.","submitButtonText":"Soumission","subProductItemsLeft":"({count} articles restants)","uploadExtensions":"Vous ne pouvez uploader que les fichiers suivants :","uploadFilesize":"La taille du fichier ne peut pas dépasser :","uploadFilesizemin":"la taille du fichier ne peut pas être inférieure à :","url":"Ce champ peut uniquement contenir une URL valide","validateEmail":"Vous devez valider cet e-mail","wordLimitError":"Trop de mots. Le nombre max. de mots est de","wordMinLimitError":"Nombre de mots insuffisants. Le minimum est de"});
+            FormTranslation.init({"detectUserLanguage":"1","firstPageOnly":"0","options":"Français","originalLanguage":"fr","primaryLanguage":"fr","saveUserLanguage":"1","showStatus":"Flag & Text","theme":"light-theme","version":"2"});
+            setTimeout(function() {
+                JotForm.initMultipleUploads();
+            }, 2);
+            /*INIT-END*/
+        });
+
+        setTimeout(function() {
+            JotForm.paymentExtrasOnTheFly([null,null,{"name":"magland","qid":"2","text":"MAGLAND","type":"control_head"},{"description":"","labelText":"","name":"image2","qid":"3","text":"image2","type":"control_image"},null,null,null,null,null,null,null,{"description":"","labelText":"","name":"image3","qid":"11","text":"image3","type":"control_image"},null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"name":"ltpgtltspanStylecolor33","qid":"33","text":"quel que soit le montant de la subvention sollicitee. Si le signataire n'est pas le representant legal de l'association, joindre le pouvoir lui permettant d'engager celleRepresentant(e) legal(e) de l'association Certifie que l'association est regulierement declaree Certifie que l'association est en regle au regard de l'ensemble des declarations sociales etl'ensemble des demandes de subventions deposees aupres d'autres financeurs publics, ainsi que l'approbation du budget par les instances statutaires: toute fausse declaration est passible de peines d'emprisonnement et d'amendes prevues par les arti du code penal. Le droit d'acces aux informations prevues par la loi n°78 17 du 06 janvier 1978 relative a l'informatique, aux fichiers et aux libertes s'exerce aupres du service ou de l'Etablissement aupres duquel vous avez depose votre","type":"control_text"},{"name":"submit","qid":"34","text":"Valider le formulaire","type":"control_button"},null,{"description":"","name":"nomDe36","qid":"36","subLabel":"","text":"Nom de votre association","type":"control_textbox"},null,null,null,{"description":"","name":"adresseDu","qid":"40","subLabel":"","text":"Adresse du siege social","type":"control_textbox"},{"description":"","name":"telephone","qid":"41","text":"Telephone","type":"control_phone"},{"description":"","name":"email","qid":"42","subLabel":"exemple@exemple.com","text":"Email","type":"control_email"},null,{"description":"","name":"numeroDenregistrement","qid":"44","subLabel":"","text":"Numero d'enregistrement prefecture","type":"control_number"},{"description":"","name":"president","qid":"45","subLabel":"","text":"President","type":"control_textbox"},null,{"description":"","name":"telephone47","qid":"47","text":"Telephone","type":"control_phone"},{"description":"","name":"email48","qid":"48","subLabel":"exemple@exemple.com","text":"Email","type":"control_email"},{"description":"","name":"nomDe","qid":"49","subLabel":"","text":"Nom de l'expert-comptable (si concerne)","type":"control_textbox"},{"description":"","name":"telephoneDe","qid":"50","text":"Telephone de l'expert-comptable","type":"control_phone"},{"description":"","name":"emailDe","qid":"51","subLabel":"exemple@exemple.com","text":"Email de l'expert-comptable","type":"control_email"},null,{"name":"presentationDe","qid":"53","text":"Presentation de l'association:","type":"control_head"},null,{"name":"separateur","qid":"55","text":"Separateur","type":"control_divider"},{"name":"piecesA","qid":"56","text":"Pieces a joindre au dossier","type":"control_head"},{"name":"separateur57","qid":"57","text":"Separateur","type":"control_divider"},{"description":"","name":"lesStatuts","qid":"58","subLabel":"","text":"Les statuts de l'association (si modification ou nouvelle demande)","type":"control_fileupload"},{"description":"","name":"lesComptes","qid":"59","subLabel":"","text":"Les comptes du dernier exercice clos","type":"control_fileupload"},{"description":"","name":"budgetDe","qid":"60","subLabel":"","text":"Budget de l'annee en cours","type":"control_fileupload"},{"description":"","name":"attestationDassurance","qid":"61","subLabel":"","text":"Attestation d'assurance","type":"control_fileupload"},{"description":"","name":"uneCopie","qid":"62","subLabel":"","text":"Une copie du releve du compte courant et d'epargne de l'association au 31 decembre 2022","type":"control_fileupload"},{"name":"separateur63","qid":"63","text":"Separateur","type":"control_divider"},{"name":"1Repartition","qid":"64","text":"1- Repartition des adherents (annee en cours):","type":"control_head"},{"description":"","name":"nombreDadherents","qid":"65","subLabel":"","text":"Nombre d'adherents de l'association","type":"control_textbox"},null,{"description":"","name":"femme","qid":"67","subLabel":"","text":"Femme","type":"control_number"},{"description":"","name":"homme","qid":"68","subLabel":"","text":"Homme","type":"control_number"},{"description":"","name":"habitantA","qid":"69","subLabel":"","text":"Habitant a Magland","type":"control_number"},{"description":"","name":"habitantA70","qid":"70","subLabel":"","text":"Habitant a l'exterieur","type":"control_number"},{"description":"","name":"demandeEn","qid":"71","text":"Demande en prefecture le :","type":"control_datetime"},null,null,null,null,null,{"name":"tranchesDages","qid":"77","text":"","type":"control_head"},{"description":"","name":"chiffre","qid":"78","subLabel":"","text":"","type":"control_number"},{"description":"","name":"12","qid":"79","subLabel":"","text":"12 - 19 ans","type":"control_number"},{"description":"","name":"20","qid":"80","subLabel":"","text":"20 - 24 ans","type":"control_number"},null,{"description":"","name":"25","qid":"82","subLabel":"","text":"25 - 60 ans","type":"control_number"},{"name":"2Tarifs","qid":"83","text":"2- Tarifs :","type":"control_head"},{"description":"","name":"tarifDe","qid":"84","subLabel":"","text":"Tarif de la cotisation","type":"control_textbox"},{"description":"","name":"cotisationReversee","qid":"85","subLabel":"","text":"Cotisation reversee a ma federation","type":"control_textbox"},{"name":"moyensHumains","qid":"86","text":"Moyens humains :","type":"control_head"},null,null,null,null,null,null,null,null,null,null,{"description":"","name":"personne1","qid":"97","text":"Personne 1","type":"control_address"},{"description":"","name":"personne2","qid":"98","text":"Personne 2","type":"control_address"},{"description":"","name":"personne3","qid":"99","text":"Personne 3","type":"control_address"},{"description":"","name":"personne4","qid":"100","text":"Personne 4","type":"control_address"},{"description":"","name":"personne5","qid":"101","text":"Personne 5","type":"control_address"},{"name":"entete","qid":"102","text":"","type":"control_head"},null,{"description":"","name":"effectifSalarie","qid":"104","subLabel":"","text":"Effectif salarie :","type":"control_number"},{"description":"","name":"effectifNon","qid":"105","subLabel":"","text":"Effectif non salarie defraye :","type":"control_number"},{"name":"4","qid":"106","text":"4 - Locaux utilises et equipements:","type":"control_head"},{"description":"","name":"lassociationDisposetelle","qid":"107","text":"L'association dispose-t-elle de locaux mis a disposition par la Mairie ?","type":"control_radio"},null,null,{"description":"","name":"siOui","qid":"110","text":"Si oui, date de la convention :","type":"control_datetime"},{"name":"entete111","qid":"111","text":"","type":"control_head"},{"description":"","name":"parSemaine","qid":"112","subLabel":"","text":"Par semaine :","type":"control_textbox"},{"description":"","name":"parJour","qid":"113","subLabel":"","text":"Par jour (en heure) :","type":"control_textbox"},{"description":"","name":"parAn","qid":"114","subLabel":"","text":"Par an :","type":"control_textbox"},{"name":"bilanFinancier","qid":"115","text":"Bilan financier 2022\u002F Budget previsionnel 2024 :","type":"control_head"},{"name":"1","qid":"116","text":"1 - Depenses :","type":"control_head"},null,null,null,null,{"name":"entete121","qid":"121","text":"Bilan 2022","type":"control_head"},{"description":"","name":"10","qid":"122","subLabel":"","text":"10 - Achats","type":"control_textbox"},{"description":"","name":"100","qid":"123","subLabel":"","text":"100 - Fournitures eau, EDF, chauffage","type":"control_textbox"},{"description":"","name":"101","qid":"124","subLabel":"","text":"101 - Carburants","type":"control_textbox"},{"description":"","name":"102","qid":"125","subLabel":"","text":"102 - Fournitures d'entretien","type":"control_textbox"},{"description":"","name":"103","qid":"126","subLabel":"","text":"103 - Fournitures administratives","type":"control_textbox"},{"description":"","name":"104","qid":"127","subLabel":"","text":"104 - Gros materiel & equipement","type":"control_textbox"},{"description":"","name":"105","qid":"128","subLabel":"","text":"105 - Autres achats","type":"control_textbox"},{"description":"","name":"11","qid":"129","subLabel":"","text":"11 - Services exterieurs","type":"control_textbox"},{"description":"","name":"110","qid":"130","subLabel":"","text":"110 - Locations, charges locatives","type":"control_textbox"},{"description":"","name":"111","qid":"131","subLabel":"","text":"111 - Entretien reparations","type":"control_textbox"},{"description":"","name":"112","qid":"132","subLabel":"","text":"112 - Maintenance","type":"control_textbox"},{"description":"","name":"113","qid":"133","subLabel":"","text":"113 - Assurances","type":"control_textbox"},{"description":"","name":"114","qid":"134","subLabel":"","text":"114 - Divers","type":"control_textbox"},{"description":"","name":"12135","qid":"135","subLabel":"","text":"12 - Autres services exterieurs","type":"control_textbox"},{"description":"","name":"120","qid":"136","subLabel":"","text":"120 - Publicite, relations publiques","type":"control_textbox"},{"description":"","name":"121","qid":"137","subLabel":"","text":"121 - Frais de deplacements","type":"control_textbox"},{"description":"","name":"122","qid":"138","subLabel":"","text":"122 - Frais de postaux et telephone","type":"control_textbox"},{"description":"","name":"123","qid":"139","subLabel":"","text":"123 - Services bancaires ","type":"control_textbox"},{"description":"","name":"124","qid":"140","subLabel":"","text":"124 - Cotisations","type":"control_textbox"},{"description":"","name":"13","qid":"141","subLabel":"","text":"13 - Manifestations","type":"control_textbox"},{"description":"","name":"14","qid":"142","subLabel":"","text":"14 - Charge de personnel","type":"control_textbox"},{"description":"","name":"15","qid":"143","subLabel":"","text":"15 - Autres charges gestion courante","type":"control_textbox"},{"description":"","name":"151","qid":"144","subLabel":"","text":"151 - Impots et taxes","type":"control_textbox"},{"description":"","name":"150","qid":"145","subLabel":"","text":"150 - Charges financieres","type":"control_textbox"},{"description":"","name":"totalDepenses","qid":"146","subLabel":"","text":"TOTAL DEPENSES","type":"control_textbox"},null,null,null,null,null,{"description":"","name":"gt60Ans","qid":"152","subLabel":"","text":"\u003E60 ans","type":"control_number"},null,null,null,null,null,null,null,null,null,{"name":"5","qid":"162","text":"5 - Declaration sur l'honneur :","type":"control_head"},null,{"description":"","name":"jeSoussignee","qid":"164","subLabel":"","text":"Je soussigne(e), (nom, prenom) :","type":"control_textbox"},{"description":"","name":"representanteLegale","qid":"165","subLabel":"","text":"Representant(e) legal(e) de l'association :","type":"control_textbox"},{"name":"input166","qid":"166","text":"- Certifie que l'association est regulierement declaree :\r\n-Certifie que l'association est en regle au regard de l'ensemble des declarations sociales et fiscales, ainsi que des cotisations de paiements correspondants;\r\n-Certifie exactes et sinceres les informations de present dossier, notamment la mention de l'ensemble des demandes de subventions deposees aupres d'autres financeurs publics, ainsi que l'approbation du budget par les instances statutaires;","type":"control_text"},{"name":"input167","qid":"167","text":"Cette fiche doit etre obligatoirement remplie pour toute demande (initiale ou renouvellement) quel que soit le montant de la subvention sollicitee. Si le signataire n'est pas le representant legal de l'association, joindre le pouvoir lui permettant d'engager celle-ci.","type":"control_text"},{"description":"","name":"pouvoirDu","qid":"168","subLabel":"","text":"Pouvoir du representant legal au signataire (si besoin)","type":"control_fileupload"},{"description":"","name":"demandeUne","qid":"169","subLabel":"€","text":"Demande une subvention de :","type":"control_number"},{"name":"input170","qid":"170","text":"- Precise que cette subvention, si elle est accordee, devra etre versee au compte bancaire de l'association;","type":"control_text"},{"description":"","name":"a","qid":"171","subLabel":"Ville","text":"A :","type":"control_textbox"},{"description":"","name":"faitLe","qid":"172","text":"Fait le :","type":"control_datetime"}]);}, 20);
+    </script>
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/form-common.css?v=1461e8a
+"/>
+    <style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.47111&themeRevisionID=63e6805f64383509e31513f4"/>
+    <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_styles.css?3.3.47111" />
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.47111" />
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/stylebuilder/donationBox.css?v=3.3.47111">
+    <style type="text/css" id="form-designer-style">
+        /* Injected CSS Code */
+        /*PREFERENCES STYLE*/
+        .form-all {
+            font-family: Inter, sans-serif;
+        }
+
+        .form-label.form-label-auto {
+
+            display: block;
+            float: none;
+            text-align: left;
+            width: 100%;
+
+        }
+
+        .form-line {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .form-all {
+            max-width: 752px;
+            width: 100%;
+        }
+
+        .form-label.form-label-left,
+        .form-label.form-label-right,
+        .form-label.form-label-left.form-label-auto,
+        .form-label.form-label-right.form-label-auto {
+            width: 230px;
+        }
+
+        .form-all {
+            font-size: 16px
+        }
+
+        .supernova .form-all, .form-all {
+            background-color: #fff;
+        }
+
+        .form-all {
+            color: #2C3345;
+        }
+        .form-header-group .form-header {
+            color: #2C3345;
+        }
+        .form-header-group .form-subHeader {
+            color: #2C3345;
+        }
+        .form-label-top,
+        .form-label-left,
+        .form-label-right,
+        .form-html,
+        .form-checkbox-item label,
+        .form-radio-item label,
+        span.FITB .qb-checkbox-label,
+        span.FITB .qb-radiobox-label,
+        span.FITB .form-radio label,
+        span.FITB .form-checkbox label,
+        [data-blotid][data-type=checkbox] [data-labelid],
+        [data-blotid][data-type=radiobox] [data-labelid],
+        span.FITB-inptCont[data-type=checkbox] label,
+        span.FITB-inptCont[data-type=radiobox] label {
+            color: #2C3345;
+        }
+        .form-sub-label {
+            color: #464d5f;
+        }
+
+        .supernova {
+            background-color: #ecedf3;
+        }
+        .supernova body {
+            background: transparent;
+        }
+
+        .form-textbox,
+        .form-textarea,
+        .form-dropdown,
+        .form-radio-other-input,
+        .form-checkbox-other-input,
+        .form-captcha input,
+        .form-spinner input {
+            background-color: #fff;
+        }
+
+
+        .supernova {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center top;
+        }
+
+        .supernova, #stage {
+            background-image: none;
+        }
+
+        .form-all {
+            background-image: none;
+        }
+
+        .form-all {
+            position: relative;
+        }
+        .form-all:before {
+            content: "";
+            background-image: url("https://www.jotform.com/uploads/guest_767182306619d1c2/form_files/logo.65448173e87513.50221414.png");
+            display: inline-block;
+            height: 111.50442477876px;
+            position: absolute;
+            background-size: 90px 111px;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            html.supernova.isEmbeded body, html.supernova.isEmbeded .form-all {
+                margin-top: 175px;
+            }
+        }
+
+        .form-all {
+            margin-top: 175px;
+        }
+        .form-all:before {
+            top: -143px;
+            background-position: top center;
+            left: 0;
+        }
+        /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+        /* Injected CSS Code */
+    </style>
+
+    <form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://eu-submit.jotform.com/submit/233060728077052" method="post" enctype="multipart/form-data" name="form_233060728077052" id="233060728077052" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="233060728077052" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1699022045564" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="buildDate" name="buildDate" value="1699022045564" />
+        <div id="formCoverLogo" style="margin-bottom:32px" class="form-cover-wrapper form-has-cover form-page-cover-image-align-center">
+            <div class="form-page-cover-image-wrapper" style="max-width:752px">
+                <div class="form-page-cover-image" style="height:111px;width:90px;background-image:url(&quot;https://www.jotform.com/uploads/guest_767182306619d1c2/form_files/logo.65448173e87513.50221414.png&quot;);background-size:90px 111px" aria-label="Form Logo"></div>
+            </div>
+        </div>
+        <div role="main" class="form-all">
+            <link type="text/css" rel="stylesheet" media="all" href="https://cdn.jotfor.ms/wizards/languageWizard/custom-dropdown/css/lang-dd.css?3.3.47111" />
+            <div class="cont"><input type="text" id="input_language" name="input_language" style="display:none" />
+                <div class="language-dd" id="langDd" style="display:none">
+                    <div class="dd-placeholder lang-emp">Language</div>
+                    <ul class="lang-list dn" id="langList">
+                        <li data-lang="fr" class="fr">Français</li>
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript" src="https://cdn.jotfor.ms/js/formTranslation.v2.js?3.3.47111"></script>
+            <ul class="form-section page-section">
+                <li id="cid_2" class="form-input-wide" data-type="control_head">
+                    <div style="display:table;width:100%">
+                        <div class="form-header-group hasImage header-large" data-imagealign="Top">
+                            <div class="header-logo"><img src="https://www.jotform.com/uploads/guest_767182306619d1c2/form_files/image_654480dec9f6e.png?nc=1" alt="MAGLAND" width="100.5" class="header-logo-top" /></div>
+                            <div class="header-text httac htvam">
+                                <h1 id="header_2" class="form-header" data-component="header">MAGLAND</h1>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_image" id="id_3">
+                    <div id="cid_3" class="form-input-wide" data-layout="full">
+                        <div style="text-align:center"><img alt="Image-3" loading="lazy" class="form-image" style="border:0" src="https://www.jotform.com/uploads/guest_767182306619d1c2/form_files/image_654480df41a5c.png?nc=1" tabindex="0" height="115px" width="345px" data-component="image" role="presentation" /></div>
+                    </div>
+                </li>
+                <li id="cid_53" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_53" class="form-header" data-component="header">Présentation de l&#x27;association:</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_textbox" id="id_36"><label class="form-label form-label-top form-label-auto" id="label_36" for="input_36" aria-hidden="false"> Nom de votre association<span class="form-required">*</span> </label>
+                    <div id="cid_36" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_36" name="q36_nomDe36" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_36" required="" value="" /> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_textbox" id="id_40"><label class="form-label form-label-top form-label-auto" id="label_40" for="input_40" aria-hidden="false"> Adresse du siège social<span class="form-required">*</span> </label>
+                    <div id="cid_40" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_40" name="q40_adresseDu" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_40" required="" value="" /> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_phone" id="id_41"><label class="form-label form-label-top form-label-auto" id="label_41" for="input_41_full"> Téléphone<span class="form-required">*</span> </label>
+                    <div id="cid_41" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_41_full" name="q41_telephone[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" autoComplete="section-input_41 tel-national" style="width:310px" data-masked="true" placeholder="00.00.00.00.00" data-component="phone" aria-labelledby="label_41 sublabel_41_masked" required="" value="" /><label class="form-sub-label" for="input_41_full" id="sublabel_41_masked" style="min-height:13px" aria-hidden="false">Merci de saisir un numéro de téléphone valide.</label></span> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_email" id="id_42"><label class="form-label form-label-top form-label-auto" id="label_42" for="input_42" aria-hidden="false"> Email<span class="form-required">*</span> </label>
+                    <div id="cid_42" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_42" name="q42_email" class="form-textbox validate[required, Email]" data-defaultvalue="" autoComplete="section-input_42 email" style="width:310px" size="310" data-component="email" aria-labelledby="label_42 sublabel_input_42" required="" value="" /><label class="form-sub-label" for="input_42" id="sublabel_input_42" style="min-height:13px" aria-hidden="false">exemple@exemple.com</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_datetime" id="id_71"><label class="form-label form-label-top form-label-auto" id="label_71" for="lite_mode_71" aria-hidden="false"> Demande en préfecture le : </label>
+                    <div id="cid_71" class="form-input-wide" data-layout="half">
+                        <div data-wrapper-react="true">
+                            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="month_71" name="q71_demandeEn[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_71 sublabel_71_month" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="month_71" id="sublabel_71_month" style="min-height:13px" aria-hidden="false">Mois</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="day_71" name="q71_demandeEn[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_71 sublabel_71_day" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="day_71" id="sublabel_71_day" style="min-height:13px" aria-hidden="false">Jour</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="year_71" name="q71_demandeEn[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" autoComplete="off" aria-labelledby="label_71 sublabel_71_year" /><label class="form-sub-label" for="year_71" id="sublabel_71_year" style="min-height:13px" aria-hidden="false">Année</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[limitDate, validateLiteDate]" id="lite_mode_71" size="12" data-maxlength="12" maxLength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-JJ-AAAA" data-placeholder="MM-DD-YYYY" autoComplete="off" aria-labelledby="label_71 sublabel_71_litemode" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Form not found" id="input_71_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" /><label class="form-sub-label" for="lite_mode_71" id="sublabel_71_litemode" style="min-height:13px" aria-hidden="false">Date</label></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_number" id="id_44"><label class="form-label form-label-top form-label-auto" id="label_44" for="input_44" aria-hidden="false"> Numéro d'enregistrement préfecture<span class="form-required">*</span> </label>
+                    <div id="cid_44" class="form-input-wide jf-required" data-layout="half"> <input type="number" id="input_44" name="q44_numeroDenregistrement" data-type="input-number" class=" form-number-input form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="number" aria-labelledby="label_44" required="" step="any" value="" /> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_textbox" id="id_45"><label class="form-label form-label-top form-label-auto" id="label_45" for="input_45" aria-hidden="false"> Président<span class="form-required">*</span> </label>
+                    <div id="cid_45" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_45" name="q45_president" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_45" required="" value="" /> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_phone" id="id_47"><label class="form-label form-label-top form-label-auto" id="label_47" for="input_47_full"> Téléphone<span class="form-required">*</span> </label>
+                    <div id="cid_47" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_47_full" name="q47_telephone47[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" autoComplete="section-input_47 tel-national" style="width:310px" data-masked="true" placeholder="00.00.00.00.00" data-component="phone" aria-labelledby="label_47 sublabel_47_masked" required="" value="" /><label class="form-sub-label" for="input_47_full" id="sublabel_47_masked" style="min-height:13px" aria-hidden="false">Merci de saisir un numéro de téléphone valide.</label></span> </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_email" id="id_48"><label class="form-label form-label-top form-label-auto" id="label_48" for="input_48" aria-hidden="false"> Email<span class="form-required">*</span> </label>
+                    <div id="cid_48" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_48" name="q48_email48" class="form-textbox validate[required, Email]" data-defaultvalue="" autoComplete="section-input_48 email" style="width:310px" size="310" data-component="email" aria-labelledby="label_48 sublabel_input_48" required="" value="" /><label class="form-sub-label" for="input_48" id="sublabel_input_48" style="min-height:13px" aria-hidden="false">exemple@exemple.com</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_divider" id="id_55">
+                    <div id="cid_55" class="form-input-wide" data-layout="full">
+                        <div class="divider" data-component="divider" style="border-bottom-width:3px;border-bottom-style:solid;border-color:#83D0E4;height:3px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px"></div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_49"><label class="form-label form-label-top form-label-auto" id="label_49" for="input_49" aria-hidden="false"> Nom de l'expert-comptable (si concerné) </label>
+                    <div id="cid_49" class="form-input-wide" data-layout="half"> <input type="text" id="input_49" name="q49_nomDe" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_49" value="" /> </div>
+                </li>
+                <li class="form-line form-field-hidden" style="display:none;" data-type="control_phone" id="id_50"><label class="form-label form-label-top form-label-auto" id="label_50" for="input_50_full"> Téléphone de l'expert-comptable </label>
+                    <div id="cid_50" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_50_full" name="q50_telephoneDe[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[Fill Mask]" data-defaultvalue="" autoComplete="section-input_50 tel-national" style="width:310px" data-masked="true" placeholder="00.00.00.00.00" data-component="phone" aria-labelledby="label_50 sublabel_50_masked" value="" /><label class="form-sub-label" for="input_50_full" id="sublabel_50_masked" style="min-height:13px" aria-hidden="false">Merci de saisir un numéro de téléphone valide.</label></span> </div>
+                </li>
+                <li class="form-line form-field-hidden" style="display:none;" data-type="control_email" id="id_51"><label class="form-label form-label-top form-label-auto" id="label_51" for="input_51" aria-hidden="false"> Email de l'expert-comptable </label>
+                    <div id="cid_51" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_51" name="q51_emailDe" class="form-textbox validate[Email]" data-defaultvalue="" autoComplete="section-input_51 email" style="width:310px" size="310" data-component="email" aria-labelledby="label_51 sublabel_input_51" value="" /><label class="form-sub-label" for="input_51" id="sublabel_input_51" style="min-height:13px" aria-hidden="false">exemple@exemple.com</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_divider" id="id_57">
+                    <div id="cid_57" class="form-input-wide" data-layout="full">
+                        <div class="divider" data-component="divider" style="border-bottom-width:3px;border-bottom-style:solid;border-color:#83D0E4;height:3px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px"></div>
+                    </div>
+                </li>
+                <li id="cid_56" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_56" class="form-header" data-component="header">Pièces à joindre au dossier</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_58"><label class="form-label form-label-top form-label-auto" id="label_58" for="input_58" aria-hidden="false"> Les statuts de l'association (si modification ou nouvelle demande) </label>
+                    <div id="cid_58" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_58" name="q58_lesStatuts[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_59"><label class="form-label form-label-top form-label-auto" id="label_59" for="input_59" aria-hidden="false"> Les comptes du dernier exercice clos </label>
+                    <div id="cid_59" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_59" name="q59_lesComptes[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_60"><label class="form-label form-label-top form-label-auto" id="label_60" for="input_60" aria-hidden="false"> Budget de l'année en cours </label>
+                    <div id="cid_60" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_60" name="q60_budgetDe[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_61"><label class="form-label form-label-top form-label-auto" id="label_61" for="input_61" aria-hidden="false"> Attestation d'assurance </label>
+                    <div id="cid_61" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_61" name="q61_attestationDassurance[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_62"><label class="form-label form-label-top form-label-auto" id="label_62" for="input_62" aria-hidden="false"> Une copie du relevé du compte courant et d'épargne de l'association au 31 décembre 2022 </label>
+                    <div id="cid_62" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_62" name="q62_uneCopie[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_divider" id="id_63">
+                    <div id="cid_63" class="form-input-wide" data-layout="full">
+                        <div class="divider" data-component="divider" style="border-bottom-width:3px;border-bottom-style:solid;border-color:#83D0E4;height:3px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px"></div>
+                    </div>
+                </li>
+                <li id="cid_64" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_64" class="form-header" data-component="header">1- Répartition des adhérents (année en cours):</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_65"><label class="form-label form-label-top form-label-auto" id="label_65" for="input_65" aria-hidden="false"> Nombre d'adhérents de l'association </label>
+                    <div id="cid_65" class="form-input-wide" data-layout="half"> <input type="text" id="input_65" name="q65_nombreDadherents" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_65" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_68"><label class="form-label form-label-top form-label-auto" id="label_68" for="input_68" aria-hidden="false"> Homme </label>
+                    <div id="cid_68" class="form-input-wide" data-layout="half"> <input type="number" id="input_68" name="q68_homme" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_68" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_67"><label class="form-label form-label-top form-label-auto" id="label_67" for="input_67" aria-hidden="false"> Femme </label>
+                    <div id="cid_67" class="form-input-wide" data-layout="half"> <input type="number" id="input_67" name="q67_femme" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_67" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_69"><label class="form-label form-label-top form-label-auto" id="label_69" for="input_69" aria-hidden="false"> Habitant à Magland </label>
+                    <div id="cid_69" class="form-input-wide" data-layout="half"> <input type="number" id="input_69" name="q69_habitantA" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_69" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_70"><label class="form-label form-label-top form-label-auto" id="label_70" for="input_70" aria-hidden="false"> Habitant à l'extérieur </label>
+                    <div id="cid_70" class="form-input-wide" data-layout="half"> <input type="number" id="input_70" name="q70_habitantA70" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_70" step="any" value="" /> </div>
+                </li>
+                <li id="cid_77" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_77" class="form-header" data-component="header" aria-hidden="true"></h2>
+                            <div id="subHeader_77" class="form-subHeader">Tranches d&#x27;âges :</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_78"><label class="form-label form-label-top form-label-auto" id="label_78" for="input_78" aria-hidden="true"> </label>
+                    <div id="cid_78" class="form-input-wide" data-layout="half"> <input type="number" id="input_78" name="q78_chiffre" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_78" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_79"><label class="form-label form-label-top form-label-auto" id="label_79" for="input_79" aria-hidden="false"> 12 - 19 ans </label>
+                    <div id="cid_79" class="form-input-wide" data-layout="half"> <input type="number" id="input_79" name="q79_12" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_79" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_80"><label class="form-label form-label-top form-label-auto" id="label_80" for="input_80" aria-hidden="false"> 20 - 24 ans </label>
+                    <div id="cid_80" class="form-input-wide" data-layout="half"> <input type="number" id="input_80" name="q80_20" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_80" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_82"><label class="form-label form-label-top form-label-auto" id="label_82" for="input_82" aria-hidden="false"> 25 - 60 ans </label>
+                    <div id="cid_82" class="form-input-wide" data-layout="half"> <input type="number" id="input_82" name="q82_25" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_82" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_152"><label class="form-label form-label-top form-label-auto" id="label_152" for="input_152" aria-hidden="false"> &gt;60 ans </label>
+                    <div id="cid_152" class="form-input-wide" data-layout="half"> <input type="number" id="input_152" name="q152_gt60Ans" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_152" step="any" value="" /> </div>
+                </li>
+                <li id="cid_83" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_83" class="form-header" data-component="header">2- Tarifs :</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_84"><label class="form-label form-label-top form-label-auto" id="label_84" for="input_84" aria-hidden="false"> Tarif de la cotisation </label>
+                    <div id="cid_84" class="form-input-wide" data-layout="half"> <input type="text" id="input_84" name="q84_tarifDe" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_84" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_85"><label class="form-label form-label-top form-label-auto" id="label_85" for="input_85" aria-hidden="false"> Cotisation reversée à ma fédération </label>
+                    <div id="cid_85" class="form-input-wide" data-layout="half"> <input type="text" id="input_85" name="q85_cotisationReversee" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_85" value="" /> </div>
+                </li>
+                <li id="cid_86" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_86" class="form-header" data-component="header">Moyens humains :</h2>
+                            <div id="subHeader_86" class="form-subHeader">Les membres du bureau :</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_address" id="id_97" data-compound-hint=",,,,Veuillez sélectionner,,Veuillez sélectionner,"><label class="form-label form-label-top form-label-auto" id="label_97" for="input_97_addr_line1" aria-hidden="false"> Personne 1 </label>
+                    <div id="cid_97" class="form-input-wide" data-layout="full">
+                        <div summary="" class="form-address-table jsTest-addressField">
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_97_addr_line1" name="q97_personne1[addr_line1]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_97 address-line1" data-component="address_line_1" aria-labelledby="label_97 sublabel_97_addr_line1" required="" value="" /><label class="form-sub-label" for="input_97_addr_line1" id="sublabel_97_addr_line1" style="min-height:13px" aria-hidden="false">Nom et prénom</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_97_addr_line2" name="q97_personne1[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_97 address-line2" data-component="address_line_2" aria-labelledby="label_97 sublabel_97_addr_line2" value="" /><label class="form-sub-label" for="input_97_addr_line2" id="sublabel_97_addr_line2" style="min-height:13px" aria-hidden="false">Adresse</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_97_city" name="q97_personne1[city]" class="form-textbox form-address-city" data-defaultvalue="" autoComplete="section-input_97 address-level2" data-component="city" aria-labelledby="label_97 sublabel_97_city" required="" value="" /><label class="form-sub-label" for="input_97_city" id="sublabel_97_city" style="min-height:13px" aria-hidden="false">Fonction dans l&#x27;association</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_97_state" name="q97_personne1[state]" class="form-textbox form-address-state" data-defaultvalue="" autoComplete="section-input_97 address-level1" data-component="state" aria-labelledby="label_97 sublabel_97_state" required="" value="" /><label class="form-sub-label" for="input_97_state" id="sublabel_97_state" style="min-height:13px" aria-hidden="false">Téléphone</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_97_postal" name="q97_personne1[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autoComplete="section-input_97 postal-code" data-component="zip" aria-labelledby="label_97 sublabel_97_postal" required="" value="" /><label class="form-sub-label" for="input_97_postal" id="sublabel_97_postal" style="min-height:13px" aria-hidden="false">Email</label></span></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_address" id="id_98" data-compound-hint=",,,,Veuillez sélectionner,,Veuillez sélectionner,"><label class="form-label form-label-top form-label-auto" id="label_98" for="input_98_addr_line1" aria-hidden="false"> Personne 2 </label>
+                    <div id="cid_98" class="form-input-wide" data-layout="full">
+                        <div summary="" class="form-address-table jsTest-addressField">
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_98_addr_line1" name="q98_personne2[addr_line1]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_98 address-line1" data-component="address_line_1" aria-labelledby="label_98 sublabel_98_addr_line1" required="" value="" /><label class="form-sub-label" for="input_98_addr_line1" id="sublabel_98_addr_line1" style="min-height:13px" aria-hidden="false">Nom et prénom</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_98_addr_line2" name="q98_personne2[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_98 address-line2" data-component="address_line_2" aria-labelledby="label_98 sublabel_98_addr_line2" value="" /><label class="form-sub-label" for="input_98_addr_line2" id="sublabel_98_addr_line2" style="min-height:13px" aria-hidden="false">Adresse</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_98_city" name="q98_personne2[city]" class="form-textbox form-address-city" data-defaultvalue="" autoComplete="section-input_98 address-level2" data-component="city" aria-labelledby="label_98 sublabel_98_city" required="" value="" /><label class="form-sub-label" for="input_98_city" id="sublabel_98_city" style="min-height:13px" aria-hidden="false">Fonction dans l&#x27;association</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_98_state" name="q98_personne2[state]" class="form-textbox form-address-state" data-defaultvalue="" autoComplete="section-input_98 address-level1" data-component="state" aria-labelledby="label_98 sublabel_98_state" required="" value="" /><label class="form-sub-label" for="input_98_state" id="sublabel_98_state" style="min-height:13px" aria-hidden="false">Téléphone</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_98_postal" name="q98_personne2[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autoComplete="section-input_98 postal-code" data-component="zip" aria-labelledby="label_98 sublabel_98_postal" required="" value="" /><label class="form-sub-label" for="input_98_postal" id="sublabel_98_postal" style="min-height:13px" aria-hidden="false">Email</label></span></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_address" id="id_99" data-compound-hint=",,,,Veuillez sélectionner,,Veuillez sélectionner,"><label class="form-label form-label-top form-label-auto" id="label_99" for="input_99_addr_line1" aria-hidden="false"> Personne 3 </label>
+                    <div id="cid_99" class="form-input-wide" data-layout="full">
+                        <div summary="" class="form-address-table jsTest-addressField">
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_99_addr_line1" name="q99_personne3[addr_line1]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_99 address-line1" data-component="address_line_1" aria-labelledby="label_99 sublabel_99_addr_line1" required="" value="" /><label class="form-sub-label" for="input_99_addr_line1" id="sublabel_99_addr_line1" style="min-height:13px" aria-hidden="false">Nom et prénom</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_99_addr_line2" name="q99_personne3[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_99 address-line2" data-component="address_line_2" aria-labelledby="label_99 sublabel_99_addr_line2" value="" /><label class="form-sub-label" for="input_99_addr_line2" id="sublabel_99_addr_line2" style="min-height:13px" aria-hidden="false">Adresse</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_99_city" name="q99_personne3[city]" class="form-textbox form-address-city" data-defaultvalue="" autoComplete="section-input_99 address-level2" data-component="city" aria-labelledby="label_99 sublabel_99_city" required="" value="" /><label class="form-sub-label" for="input_99_city" id="sublabel_99_city" style="min-height:13px" aria-hidden="false">Fonction dans l&#x27;association</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_99_state" name="q99_personne3[state]" class="form-textbox form-address-state" data-defaultvalue="" autoComplete="section-input_99 address-level1" data-component="state" aria-labelledby="label_99 sublabel_99_state" required="" value="" /><label class="form-sub-label" for="input_99_state" id="sublabel_99_state" style="min-height:13px" aria-hidden="false">Téléphone</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_99_postal" name="q99_personne3[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autoComplete="section-input_99 postal-code" data-component="zip" aria-labelledby="label_99 sublabel_99_postal" required="" value="" /><label class="form-sub-label" for="input_99_postal" id="sublabel_99_postal" style="min-height:13px" aria-hidden="false">Email</label></span></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_address" id="id_100" data-compound-hint=",,,,Veuillez sélectionner,,Veuillez sélectionner,"><label class="form-label form-label-top form-label-auto" id="label_100" for="input_100_addr_line1" aria-hidden="false"> Personne 4 </label>
+                    <div id="cid_100" class="form-input-wide" data-layout="full">
+                        <div summary="" class="form-address-table jsTest-addressField">
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_100_addr_line1" name="q100_personne4[addr_line1]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_100 address-line1" data-component="address_line_1" aria-labelledby="label_100 sublabel_100_addr_line1" required="" value="" /><label class="form-sub-label" for="input_100_addr_line1" id="sublabel_100_addr_line1" style="min-height:13px" aria-hidden="false">Nom et prénom</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_100_addr_line2" name="q100_personne4[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_100 address-line2" data-component="address_line_2" aria-labelledby="label_100 sublabel_100_addr_line2" value="" /><label class="form-sub-label" for="input_100_addr_line2" id="sublabel_100_addr_line2" style="min-height:13px" aria-hidden="false">Adresse</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_100_city" name="q100_personne4[city]" class="form-textbox form-address-city" data-defaultvalue="" autoComplete="section-input_100 address-level2" data-component="city" aria-labelledby="label_100 sublabel_100_city" required="" value="" /><label class="form-sub-label" for="input_100_city" id="sublabel_100_city" style="min-height:13px" aria-hidden="false">Fonction dans l&#x27;association</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_100_state" name="q100_personne4[state]" class="form-textbox form-address-state" data-defaultvalue="" autoComplete="section-input_100 address-level1" data-component="state" aria-labelledby="label_100 sublabel_100_state" required="" value="" /><label class="form-sub-label" for="input_100_state" id="sublabel_100_state" style="min-height:13px" aria-hidden="false">Téléphone</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_100_postal" name="q100_personne4[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autoComplete="section-input_100 postal-code" data-component="zip" aria-labelledby="label_100 sublabel_100_postal" required="" value="" /><label class="form-sub-label" for="input_100_postal" id="sublabel_100_postal" style="min-height:13px" aria-hidden="false">Email</label></span></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_address" id="id_101" data-compound-hint=",,,,Veuillez sélectionner,,Veuillez sélectionner,"><label class="form-label form-label-top form-label-auto" id="label_101" for="input_101_addr_line1" aria-hidden="false"> Personne 5 </label>
+                    <div id="cid_101" class="form-input-wide" data-layout="full">
+                        <div summary="" class="form-address-table jsTest-addressField">
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_101_addr_line1" name="q101_personne5[addr_line1]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_101 address-line1" data-component="address_line_1" aria-labelledby="label_101 sublabel_101_addr_line1" required="" value="" /><label class="form-sub-label" for="input_101_addr_line1" id="sublabel_101_addr_line1" style="min-height:13px" aria-hidden="false">Nom et prénom</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_101_addr_line2" name="q101_personne5[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_101 address-line2" data-component="address_line_2" aria-labelledby="label_101 sublabel_101_addr_line2" value="" /><label class="form-sub-label" for="input_101_addr_line2" id="sublabel_101_addr_line2" style="min-height:13px" aria-hidden="false">Adresse</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_101_city" name="q101_personne5[city]" class="form-textbox form-address-city" data-defaultvalue="" autoComplete="section-input_101 address-level2" data-component="city" aria-labelledby="label_101 sublabel_101_city" required="" value="" /><label class="form-sub-label" for="input_101_city" id="sublabel_101_city" style="min-height:13px" aria-hidden="false">Fonction dans l&#x27;association</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_101_state" name="q101_personne5[state]" class="form-textbox form-address-state" data-defaultvalue="" autoComplete="section-input_101 address-level1" data-component="state" aria-labelledby="label_101 sublabel_101_state" required="" value="" /><label class="form-sub-label" for="input_101_state" id="sublabel_101_state" style="min-height:13px" aria-hidden="false">Téléphone</label></span></span></div>
+                            <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_101_postal" name="q101_personne5[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autoComplete="section-input_101 postal-code" data-component="zip" aria-labelledby="label_101 sublabel_101_postal" required="" value="" /><label class="form-sub-label" for="input_101_postal" id="sublabel_101_postal" style="min-height:13px" aria-hidden="false">Email</label></span></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li id="cid_102" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_102" class="form-header" data-component="header" aria-hidden="true"></h2>
+                            <div id="subHeader_102" class="form-subHeader">Renseignements techniques :</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_104"><label class="form-label form-label-top form-label-auto" id="label_104" for="input_104" aria-hidden="false"> Effectif salarié : </label>
+                    <div id="cid_104" class="form-input-wide" data-layout="half"> <input type="number" id="input_104" name="q104_effectifSalarie" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_104" step="any" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_105"><label class="form-label form-label-top form-label-auto" id="label_105" for="input_105" aria-hidden="false"> Effectif non salarié défrayé : </label>
+                    <div id="cid_105" class="form-input-wide" data-layout="half"> <input type="number" id="input_105" name="q105_effectifNon" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_105" step="any" value="" /> </div>
+                </li>
+                <li id="cid_106" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_106" class="form-header" data-component="header">4 - Locaux utilisés et équipements:</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_radio" id="id_107"><label class="form-label form-label-top form-label-auto" id="label_107" for="input_107" aria-hidden="false"> L'association dispose-t-elle de locaux mis à disposition par la Mairie ? </label>
+                    <div id="cid_107" class="form-input-wide" data-layout="full">
+                        <div class="form-single-column" role="group" aria-labelledby="label_107" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_107" class="form-radio" id="input_107_0" name="q107_lassociationDisposetelle" value="Oui" /><label id="label_input_107_0" for="input_107_0">Oui</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_107" class="form-radio" id="input_107_1" name="q107_lassociationDisposetelle" value="Non" /><label id="label_input_107_1" for="input_107_1">Non</label></span></div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_datetime" id="id_110"><label class="form-label form-label-top form-label-auto" id="label_110" for="lite_mode_110" aria-hidden="false"> Si oui, date de la convention : </label>
+                    <div id="cid_110" class="form-input-wide" data-layout="half">
+                        <div data-wrapper-react="true">
+                            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="month_110" name="q110_siOui[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_110 sublabel_110_month" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="month_110" id="sublabel_110_month" style="min-height:13px" aria-hidden="false">Mois</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="day_110" name="q110_siOui[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_110 sublabel_110_day" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="day_110" id="sublabel_110_day" style="min-height:13px" aria-hidden="false">Jour</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="year_110" name="q110_siOui[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" autoComplete="off" aria-labelledby="label_110 sublabel_110_year" /><label class="form-sub-label" for="year_110" id="sublabel_110_year" style="min-height:13px" aria-hidden="false">Année</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[limitDate, validateLiteDate]" id="lite_mode_110" size="12" data-maxlength="12" maxLength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-JJ-AAAA" data-placeholder="MM-DD-YYYY" autoComplete="off" aria-labelledby="label_110" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Form not found" id="input_110_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" /><label class="form-sub-label is-empty" for="lite_mode_110" id="sublabel_110_litemode" style="min-height:13px" aria-hidden="false"></label></span>
+                        </div>
+                    </div>
+                </li>
+                <li id="cid_111" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_111" class="form-header" data-component="header" aria-hidden="true"></h2>
+                            <div id="subHeader_111" class="form-subHeader">Temps d&#x27;occupation des locaux :</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_112"><label class="form-label form-label-top form-label-auto" id="label_112" for="input_112" aria-hidden="false"> Par semaine : </label>
+                    <div id="cid_112" class="form-input-wide" data-layout="half"> <input type="text" id="input_112" name="q112_parSemaine" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_112" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_113"><label class="form-label form-label-top form-label-auto" id="label_113" for="input_113" aria-hidden="false"> Par jour (en heure) : </label>
+                    <div id="cid_113" class="form-input-wide" data-layout="half"> <input type="text" id="input_113" name="q113_parJour" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_113" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_114"><label class="form-label form-label-top form-label-auto" id="label_114" for="input_114" aria-hidden="false"> Par an : </label>
+                    <div id="cid_114" class="form-input-wide" data-layout="half"> <input type="text" id="input_114" name="q114_parAn" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_114" value="" /> </div>
+                </li>
+                <li id="cid_115" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_115" class="form-header" data-component="header">Bilan financier 2022/ Budget prévisionnel 2024 :</h2>
+                        </div>
+                    </div>
+                </li>
+                <li id="cid_116" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_116" class="form-header" data-component="header">1 - Dépenses :</h2>
+                        </div>
+                    </div>
+                </li>
+                <li id="cid_121" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_121" class="form-header" data-component="header">Bilan 2022</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_122"><label class="form-label form-label-top form-label-auto" id="label_122" for="input_122" aria-hidden="false"> 10 - Achats </label>
+                    <div id="cid_122" class="form-input-wide" data-layout="half"> <input type="text" id="input_122" name="q122_10" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_122" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_123"><label class="form-label form-label-top form-label-auto" id="label_123" for="input_123" aria-hidden="false"> 100 - Fournitures eau, EDF, chauffage </label>
+                    <div id="cid_123" class="form-input-wide" data-layout="half"> <input type="text" id="input_123" name="q123_100" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_123" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_124"><label class="form-label form-label-top form-label-auto" id="label_124" for="input_124" aria-hidden="false"> 101 - Carburants </label>
+                    <div id="cid_124" class="form-input-wide" data-layout="half"> <input type="text" id="input_124" name="q124_101" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_124" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_125"><label class="form-label form-label-top form-label-auto" id="label_125" for="input_125" aria-hidden="false"> 102 - Fournitures d'entretien </label>
+                    <div id="cid_125" class="form-input-wide" data-layout="half"> <input type="text" id="input_125" name="q125_102" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_125" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_126"><label class="form-label form-label-top form-label-auto" id="label_126" for="input_126" aria-hidden="false"> 103 - Fournitures administratives </label>
+                    <div id="cid_126" class="form-input-wide" data-layout="half"> <input type="text" id="input_126" name="q126_103" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_126" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_127"><label class="form-label form-label-top form-label-auto" id="label_127" for="input_127" aria-hidden="false"> 104 - Gros matériel &amp; équipement </label>
+                    <div id="cid_127" class="form-input-wide" data-layout="half"> <input type="text" id="input_127" name="q127_104" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_127" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_128"><label class="form-label form-label-top form-label-auto" id="label_128" for="input_128" aria-hidden="false"> 105 - Autres achats </label>
+                    <div id="cid_128" class="form-input-wide" data-layout="half"> <input type="text" id="input_128" name="q128_105" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_128" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_129"><label class="form-label form-label-top form-label-auto" id="label_129" for="input_129" aria-hidden="false"> 11 - Services extérieurs </label>
+                    <div id="cid_129" class="form-input-wide" data-layout="half"> <input type="text" id="input_129" name="q129_11" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_129" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_130"><label class="form-label form-label-top form-label-auto" id="label_130" for="input_130" aria-hidden="false"> 110 - Locations, charges locatives </label>
+                    <div id="cid_130" class="form-input-wide" data-layout="half"> <input type="text" id="input_130" name="q130_110" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_130" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_131"><label class="form-label form-label-top form-label-auto" id="label_131" for="input_131" aria-hidden="false"> 111 - Entretien réparations </label>
+                    <div id="cid_131" class="form-input-wide" data-layout="half"> <input type="text" id="input_131" name="q131_111" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_131" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_132"><label class="form-label form-label-top form-label-auto" id="label_132" for="input_132" aria-hidden="false"> 112 - Maintenance </label>
+                    <div id="cid_132" class="form-input-wide" data-layout="half"> <input type="text" id="input_132" name="q132_112" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_132" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_133"><label class="form-label form-label-top form-label-auto" id="label_133" for="input_133" aria-hidden="false"> 113 - Assurances </label>
+                    <div id="cid_133" class="form-input-wide" data-layout="half"> <input type="text" id="input_133" name="q133_113" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_133" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_134"><label class="form-label form-label-top form-label-auto" id="label_134" for="input_134" aria-hidden="false"> 114 - Divers </label>
+                    <div id="cid_134" class="form-input-wide" data-layout="half"> <input type="text" id="input_134" name="q134_114" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_134" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_135"><label class="form-label form-label-top form-label-auto" id="label_135" for="input_135" aria-hidden="false"> 12 - Autres services extérieurs </label>
+                    <div id="cid_135" class="form-input-wide" data-layout="half"> <input type="text" id="input_135" name="q135_12135" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_135" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_136"><label class="form-label form-label-top form-label-auto" id="label_136" for="input_136" aria-hidden="false"> 120 - Publicité, relations publiques </label>
+                    <div id="cid_136" class="form-input-wide" data-layout="half"> <input type="text" id="input_136" name="q136_120" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_136" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_137"><label class="form-label form-label-top form-label-auto" id="label_137" for="input_137" aria-hidden="false"> 121 - Frais de déplacements </label>
+                    <div id="cid_137" class="form-input-wide" data-layout="half"> <input type="text" id="input_137" name="q137_121" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_137" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_138"><label class="form-label form-label-top form-label-auto" id="label_138" for="input_138" aria-hidden="false"> 122 - Frais de postaux et téléphone </label>
+                    <div id="cid_138" class="form-input-wide" data-layout="half"> <input type="text" id="input_138" name="q138_122" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_138" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_139"><label class="form-label form-label-top form-label-auto" id="label_139" for="input_139" aria-hidden="false"> 123 - Services bancaires </label>
+                    <div id="cid_139" class="form-input-wide" data-layout="half"> <input type="text" id="input_139" name="q139_123" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_139" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_140"><label class="form-label form-label-top form-label-auto" id="label_140" for="input_140" aria-hidden="false"> 124 - Cotisations </label>
+                    <div id="cid_140" class="form-input-wide" data-layout="half"> <input type="text" id="input_140" name="q140_124" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_140" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_141"><label class="form-label form-label-top form-label-auto" id="label_141" for="input_141" aria-hidden="false"> 13 - Manifestations </label>
+                    <div id="cid_141" class="form-input-wide" data-layout="half"> <input type="text" id="input_141" name="q141_13" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_141" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_142"><label class="form-label form-label-top form-label-auto" id="label_142" for="input_142" aria-hidden="false"> 14 - Charge de personnel </label>
+                    <div id="cid_142" class="form-input-wide" data-layout="half"> <input type="text" id="input_142" name="q142_14" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_142" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_143"><label class="form-label form-label-top form-label-auto" id="label_143" for="input_143" aria-hidden="false"> 15 - Autres charges gestion courante </label>
+                    <div id="cid_143" class="form-input-wide" data-layout="half"> <input type="text" id="input_143" name="q143_15" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_143" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_144"><label class="form-label form-label-top form-label-auto" id="label_144" for="input_144" aria-hidden="false"> 151 - Impôts et taxes </label>
+                    <div id="cid_144" class="form-input-wide" data-layout="half"> <input type="text" id="input_144" name="q144_151" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_144" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_145"><label class="form-label form-label-top form-label-auto" id="label_145" for="input_145" aria-hidden="false"> 150 - Charges financières </label>
+                    <div id="cid_145" class="form-input-wide" data-layout="half"> <input type="text" id="input_145" name="q145_150" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_145" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_146"><label class="form-label form-label-top form-label-auto" id="label_146" for="input_146" aria-hidden="false"> TOTAL DEPENSES </label>
+                    <div id="cid_146" class="form-input-wide" data-layout="half"> <input type="text" id="input_146" name="q146_totalDepenses" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_146" value="" /> </div>
+                </li>
+                <li id="cid_162" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_162" class="form-header" data-component="header">5 - Déclaration sur l&#x27;honneur :</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_167">
+                    <div id="cid_167" class="form-input-wide" data-layout="full">
+                        <div id="text_167" class="form-html" data-component="text" tabindex="0">
+                            <p>Cette fiche doit être obligatoirement remplie pour toute demande (initiale ou renouvellement) quel que soit le montant de la subvention sollicitée. Si le signataire n'est pas le représentant légal de l'association, joindre le pouvoir lui permettant d'engager celle-çi.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_164"><label class="form-label form-label-top form-label-auto" id="label_164" for="input_164" aria-hidden="false"> Je soussigné(e), (nom, prénom) : </label>
+                    <div id="cid_164" class="form-input-wide" data-layout="half"> <input type="text" id="input_164" name="q164_jeSoussignee" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_164" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_165"><label class="form-label form-label-top form-label-auto" id="label_165" for="input_165" aria-hidden="false"> Représentant(e) légal(e) de l'association : </label>
+                    <div id="cid_165" class="form-input-wide" data-layout="half"> <input type="text" id="input_165" name="q165_representanteLegale" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_165" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_168"><label class="form-label form-label-top form-label-auto" id="label_168" for="input_168" aria-hidden="false"> Pouvoir du représentant légal au signataire (si besoin) </label>
+                    <div id="cid_168" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_168" name="q168_pouvoirDu[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_166">
+                    <div id="cid_166" class="form-input-wide" data-layout="full">
+                        <div id="text_166" class="form-html" data-component="text" tabindex="0">
+                            <p>- Certifie que l'association est régulièrement déclarée :</p>
+                            <p>-Certifie que l'association est en règle au regard de l'ensemble des déclarations sociales et fiscales, ainsi que des cotisations de paiements correspondants;</p>
+                            <p>-Certifie exactes et sincères les informations de présent dossier, notamment la mention de l'ensemble des demandes de subventions déposées auprès d'autres financeurs publics, ainsi que l'approbation du budget par les instances statutaires;</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_number" id="id_169"><label class="form-label form-label-top form-label-auto" id="label_169" for="input_169" aria-hidden="false"> Demande une subvention de : </label>
+                    <div id="cid_169" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="number" id="input_169" name="q169_demandeUne" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" placeholder="par ex. 23" data-component="number" aria-labelledby="label_169 sublabel_input_169" step="any" value="" /><label class="form-sub-label" for="input_169" id="sublabel_input_169" style="min-height:13px" aria-hidden="false">€</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_170">
+                    <div id="cid_170" class="form-input-wide" data-layout="full">
+                        <div id="text_170" class="form-html" data-component="text" tabindex="0">
+                            <p>- Précise que cette subvention, si elle est accordée, devra être versée au compte bancaire de l'association;</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_datetime" id="id_172"><label class="form-label form-label-top form-label-auto" id="label_172" for="lite_mode_172" aria-hidden="false"> Fait le : </label>
+                    <div id="cid_172" class="form-input-wide" data-layout="half">
+                        <div data-wrapper-react="true">
+                            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="month_172" name="q172_faitLe[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_172 sublabel_172_month" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="month_172" id="sublabel_172_month" style="min-height:13px" aria-hidden="false">Mois</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="day_172" name="q172_faitLe[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_172 sublabel_172_day" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="day_172" id="sublabel_172_day" style="min-height:13px" aria-hidden="false">Jour</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="year_172" name="q172_faitLe[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" autoComplete="off" aria-labelledby="label_172 sublabel_172_year" /><label class="form-sub-label" for="year_172" id="sublabel_172_year" style="min-height:13px" aria-hidden="false">Année</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[limitDate, validateLiteDate]" id="lite_mode_172" size="12" data-maxlength="12" maxLength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-JJ-AAAA" data-placeholder="MM-DD-YYYY" autoComplete="off" aria-labelledby="label_172 sublabel_172_litemode" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Form not found" id="input_172_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" /><label class="form-sub-label" for="lite_mode_172" id="sublabel_172_litemode" style="min-height:13px" aria-hidden="false">Date</label></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_171"><label class="form-label form-label-top form-label-auto" id="label_171" for="input_171" aria-hidden="false"> A : </label>
+                    <div id="cid_171" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_171" name="q171_a" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_171 sublabel_input_171" value="" /><label class="form-sub-label" for="input_171" id="sublabel_input_171" style="min-height:13px" aria-hidden="false">Ville</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_image" id="id_11">
+                    <div id="cid_11" class="form-input-wide" data-layout="full">
+                        <div style="text-align:center"><img alt="Image-11" loading="lazy" class="form-image" style="border:0" src="https://www.jotform.com/uploads/guest_767182306619d1c2/form_files/image_654480df9c0bc.png?nc=1" tabindex="0" height="100.5px" width="100.5px" data-component="image" role="presentation" /></div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_33">
+                    <div id="cid_33" class="form-input-wide" data-layout="full">
+                        <div id="text_33" class="form-html" data-component="text" tabindex="0">
+                            <p><span style="color: #000000;">quel que soit le montant de la subvention sollicitée. Si le signataire n'est pas le représentant légal</span> <span style="color: #000000;">de l'association, joindre le pouvoir lui permettant d'engager celle</span></p>
+                            <p><span style="color: #000000;">Représentant(e) légal(e) de l'association</span> <span style="color: #000000;">Certifie que l'association est régulièrement déclarée</span> <span style="color: #000000;">Certifie que l'association est en règle au regard de l'ensemble des déclarations sociales et</span></p>
+                            <p><span style="color: #000000;">l'ensemble des demandes de subventions déposées auprès d'autres financeurs publics,</span> <span style="color: #000000;">ainsi que l'approbation du budget par les instances statutaires</span></p>
+                            <p><span style="color: #000000;">: toute fausse déclaration est passible de peines d'emprisonnement et d'amendes prévues par les arti</span> <span style="color: #000000;">du code pénal. Le droit d'accès aux informations prévues par la loi n°78 17 du 06 janvier 1978 relative à l'informatique, aux fichiers</span> <span style="color: #000000;">et aux libertés s'exerce auprès du service ou de l'Etablissement auprès duquel vous avez déposé votre</span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_button" id="id_34">
+                    <div id="cid_34" class="form-input-wide" data-layout="full">
+                        <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_34" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Valider le formulaire</button></div>
+                    </div>
+                </li>
+                <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+            </ul>
+        </div>
+        <script>
+            JotForm.showJotFormPowered = "new_footer";
+        </script>
+        <script>
+            JotForm.poweredByText = "Propulsé par Jotform";
+        </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="233060728077052" />
+        <script type="text/javascript">
+            var all_spc = document.querySelectorAll("form[id='233060728077052'] .si" + "mple" + "_spc");
+            for (var i = 0; i < all_spc.length; i++)
+            {
+                all_spc[i].value = "233060728077052-233060728077052";
+            }
+        </script>
+    </form><script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.forwardToEu=true;</script><script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.47111"></script>
+    <script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.47111"></script>
+    <script type="text/javascript">JotForm.isNewSACL=true;</script>
+
+{% endblock %}

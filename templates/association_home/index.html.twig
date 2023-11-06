@@ -28,6 +28,21 @@
 </section>
 
     <section class="col-sm-10 col-lg-6 text-center">
+        <div class="row p-2">
+            <div class="">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Composition de l'association</h5>
+                        <div class="row">
+                            {% if app.user.membres|length == 0 %}
+                                <p class="text-center">Vous n'avez pas encore ajouté de membre à votre association</p>
+                            {% endif %}
+                        </div>
+                        <a href="{{ path('app_membres') }}" class="btn btn-success">Gestion des membres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row<">
             <div class="row p-2">
                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -55,7 +70,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Demande de subvention</h5>
                             <p class="card-text">Demander une subvention à la mairie.</p>
-                            <a href="#" class="btn btn-primary">Faire une demande</a>
+                            <a href="{{ path('app_subvention', {'id' : app.user.id}) }}" class="btn btn-primary">Faire une demande</a>
                         </div>
                     </div>
                 </div>
@@ -64,34 +79,12 @@
                         <div class="card-body">
                             <h5 class="card-title">Demande d'autorisation</h5>
                             <p class="card-text">Utilisation du domaine public, débit de boissons, matériel, vente au déballage...</p>
-                            <a href="#" class="btn btn-primary">Faire une demande</a>
+                            <a href="{{ path('app_demande_autorisation', {'id' : app.user.id}) }}" class="btn btn-primary">Faire une demande</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row p-2">
-                <div class="">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Composition de l'association</h5>
-                            <div class="row">
 
-
-                                {% if app.user.membres|length == 0 %}
-                                    <p class="text-center">Vous n'avez pas encore ajouté de membre à votre association</p>
-                                {% else %}
-
-                                {% endif %}
-
-
-                            </div>
-
-                            <a href="{{ path('app_membres') }}" class="btn btn-success">Gestion des membres</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 </div>

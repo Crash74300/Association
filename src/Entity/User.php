@@ -31,6 +31,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $superAdmin = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +112,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function isSuperAdmin(): ?bool
+    {
+        return $this->superAdmin;
+    }
+
+    public function setSuperAdmin(?bool $superAdmin): static
+    {
+        $this->superAdmin = $superAdmin;
 
         return $this;
     }

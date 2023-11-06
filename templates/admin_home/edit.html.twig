@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des administrateurs{% endblock %}
+{% block nav %}
+    <a class="btn btn-sm btn-info m-2" href="{{ path('app_admin_home') }}" >Retour</a>
+{% endblock %}
+
+{% block content %}
+    <div class="text-center mb-5">
+        <h2 class="text-center m-3">Gestion des administrateurs</h2>
+    </div>
+    {% for message in app.flashes('notice')%}
+        <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+    {% endfor %}
+
+    <div class="row text-center justify-content-center">
+        {% for user in admin %}
+            <div class="col-md-6 col-sm-10 col-lg-3 mt-3">
+                <div class="card bg-dark-subtle" >
+                    <div class="card-body">
+                        <h3 class="card-title">{{ user.name }}</h3>
+                        <h5 class="card-title">{{ user.email }}</h5>
+                        {% if user.issuperadmin %}
+                        <h5 class="card-title text-danger">Super administrateur </h5>
+                        {% else %}
+                            <h5 class="card-title text-info">Administrateur </h5>
+                        {% endif %}
+                        <a class="btn btn-sm btn-danger" href="{{path('app_admin_remove', {'id' : user.id})}}" >Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

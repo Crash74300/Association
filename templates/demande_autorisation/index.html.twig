@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DemandeAutorisationController!{% endblock %}
+{% block nav %}
+    <a class="btn btn-sm btn-info m-2" href="{{ path('app_association_home') }}" >Retour</a>
+{% endblock %}
+{% block content %}
+    <div class="text-center mb-5">
+        <h2 class="text-center m-3">{{app.user.name}}</h2>
+        <h2 class="text-center m-3">Demande d'autorisation</h2>
+    </div>
+<div class="row justify-content-around">
+    <div class="card p-2 m-2" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('assets/images/site/boissons.jpg') }}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Demande de débit de boissons</h5>
+            <p class="card-text">Remplissez le formulaire de demande de débit de boissons, il sera envoyé directement au service de la préfecture concerné.</p>
+            <a href="{{ path('app_boissons', {'id' : app.user.id}) }}" class="btn btn-primary">Remplir le formulaire</a>
+        </div>
+    </div>
+
+    <div class="card p-2 m-2" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('assets/images/site/occupation.png') }}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Demande d'occupation du domaine public'</h5>
+            <p class="card-text">Remplissez le formulaire de demande d'occupation du domaine public. Il sera transmis au service concerné de la mairie de Magland.</p>
+            <a href="#" class="btn btn-primary">Remplir le formulaire</a>
+        </div>
+    </div>
+
+
+    <div class="card p-2 m-2" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('assets/images/site/materiel.jpg') }}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Demande de prêt de matériels</h5>
+            <p class="card-text">Remplissez le formulaire de demande de prêt de matériels. Le service technique se fera un plaisir d'étudier votre demande.</p>
+            <a href="#" class="btn btn-primary">Remplir le formulaire</a>
+        </div>
+    </div>
+
+</div>
+<div class="row justify-content-around">
+    <div class="card p-2 m-2" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('assets/images/site/vente.jpg') }}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Demande de vente au déballage</h5>
+            <p class="card-text">Vous souhaitez occuper le domaine public pour vendre vos articles ? Remplissez le formulaire pour demander l'autorisation.</p>
+            <a href="#" class="btn btn-primary">Remplir le formulaire</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

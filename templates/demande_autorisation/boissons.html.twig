@@ -1,0 +1,227 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire débit de boissons{% endblock %}
+
+{% block content %}
+    <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn02.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.47108" type="text/javascript"></script>
+    <script defer src="https://cdn03.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.47108" type="text/javascript"></script>
+    <script defer src="https://cdn01.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn02.jotfor.ms/js/vendor/imageinfo.js?v=3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn03.jotfor.ms/file-uploader/fileuploader.js?v=3.3.47108"></script>
+    <script src="https://cdn01.jotfor.ms/js/payments/validategateways.js?v=3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/s/umd/4013df295eb/for-pdfimporter-patch.js?v=3.3.47108" type="text/javascript"></script>
+    <script src="https://cdn01.jotfor.ms/s/umd/4013df295eb/for-form-branding-footer.js?v=3.3.47108" type="text/javascript" defer></script>
+    <script type="text/javascript">	JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.singleProduct = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.texts = {"confirmEmail":"E-mail does not match","pleaseWait":"Please wait...","validateEmail":"You need to validate this e-mail","confirmClearForm":"Are you sure you want to clear the form","lessThan":"Your score should be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","required":"This field is required.","requireOne":"At least one field required.","requireEveryRow":"Every row is required.","requireEveryCell":"Every cell is required.","email":"Enter a valid e-mail address","alphabetic":"This field can only contain letters","numeric":"This field can only contain numeric values","alphanumeric":"This field can only contain letters and numbers.","cyrillic":"This field can only contain cyrillic characters","url":"This field can only contain a valid URL","currency":"This field can only contain currency values.","fillMask":"Field value must fill mask.","uploadExtensions":"You can only upload following files:","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","gradingScoreError":"Score total should only be less than or equal to","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","maxDigitsError":"The maximum digits allowed is","minCharactersError":"The number of characters should not be less than the minimum value:","maxCharactersError":"The number of characters should not be more than the maximum value:","freeEmailError":"Free email accounts are not allowed","minSelectionsError":"The minimum required number of selections is ","maxSelectionsError":"The maximum number of selections allowed is ","pastDatesDisallowed":"Date must not be in the past.","dateLimited":"This date is unavailable.","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","ageVerificationError":"You must be older than {minAge} years old to submit this form.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","chooseAFile_infoMessage":"Choose a file","maxFileSize_infoMessage":"Max. file size","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","ccInvalidNumber":"Credit Card Number is invalid.","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccMissingDetails":"Please fill up the credit card details.","ccMissingProduct":"Please select at least one product.","ccMissingDonation":"Please enter numeric values for donation amount.","disallowDecimals":"Please enter a whole number.","restrictedDomain":"This domain is not allowed","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","requiredLegend":"All fields marked with * are required and must be filled.","geoPermissionTitle":"Permission Denied","geoPermissionDesc":"Check your browser's privacy settings.","geoNotAvailableTitle":"Position Unavailable","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoTimeoutTitle":"Timeout","geoTimeoutDesc":"Please check your internet connection and try again.","appointmentSelected":"You’ve selected {time} on {date}","noSlotsAvailable":"No slots available","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","multipleError":"There are {count} errors on this page. Please correct them before moving on.","oneError":"There is {count} error on this page. Please correct it before moving on.","doneMessage":"Well done! All errors are fixed.","doneButton":"Done","reviewSubmitText":"Review and Submit","nextButtonText":"Next","prevButtonText":"Previous","seeErrorsButton":"See Errors","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","soldOut":"Sold Out","justSoldOut":"Just Sold Out","selectionSoldOut":"Selection Sold Out","subProductItemsLeft":"({count} items left)","startButtonText":"START","submitButtonText":"Submit","submissionLimit":"Sorry! Only one entry is allowed. Multiple submissions are disabled for this form.","reviewBackText":"Back to Form","seeAllText":"See All","progressMiddleText":"of","fieldError":"field has an error.","error":"Error"};
+        JotForm.newPaymentUI = true;
+        JotForm.importedPDF = "https://eu.jotform.com/uploads/amalesieux/form_files/pfc_fl_6544f31376154_débit_de_boissons.pdf?nc=1";
+        JotForm.importedPDFSettings = {"isConnected":"Yes","enableThumbnail":"Yes","hasPreviewButton":"Yes","startButtonText":"Remplir le formulaire","formType":"legacyForm","welcomeThumbnail":""};
+        JotForm.clearFieldOnHide="disable";
+        JotForm.submitError="jumpToFirstError";
+        window.addEventListener('DOMContentLoaded',function(){window.brandingFooter.init({"formID":233063360977056,"campaign":"powered_by_jotform_le","isCardForm":false,"isLegacyForm":true})});	JotForm.isFullSource = true;
+
+        JotForm.init(function(){
+            /*INIT-START*/
+            if (window.JotForm && JotForm.accessible) $('input_25').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_3').setAttribute('tabindex',0);
+            JotForm.setPhoneMaskingValidator( 'input_4_full', '\u0023\u0023\u002d\u0023\u0023\u002d\u0023\u0023\u002d\u0023\u0023\u002d\u0023\u0023' );
+            if (window.JotForm && JotForm.accessible) $('input_5').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_6').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_7').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_8').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_10').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_11').setAttribute('tabindex',0);
+
+            JotForm.calendarMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            if (!JotForm.calenderViewMonths) JotForm.calenderViewMonths = {};  JotForm.calenderViewMonths[12] = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            if (!JotForm.calenderViewDays) JotForm.calenderViewDays = {};  JotForm.calenderViewDays[12] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+            JotForm.calendarDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+            JotForm.calendarOther = {"today":"Today"};
+            var languageOptions = document.querySelectorAll('#langList li');
+            for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+                languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("12", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); }, 0); });
+            }
+            JotForm.onTranslationsFetch(function() { JotForm.setCalendar("12", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); });
+            if (window.JotForm && JotForm.accessible) $('input_13').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_21').setAttribute('tabindex',0);
+            if (window.JotForm && JotForm.accessible) $('input_22').setAttribute('tabindex',0);
+
+            JotForm.calendarMonths = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewMonths) JotForm.calenderViewMonths = {};  JotForm.calenderViewMonths[23] = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+            if (!JotForm.calenderViewDays) JotForm.calenderViewDays = {};  JotForm.calenderViewDays[23] = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarDays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+            JotForm.calendarOther = {"today":"Aujourd'hui"};
+            var languageOptions = document.querySelectorAll('#langList li');
+            for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+                languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("23", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); }, 0); });
+            }
+            JotForm.onTranslationsFetch(function() { JotForm.setCalendar("23", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":"","countSelectedDaysOnly":false}); });
+            JotForm.alterTexts({"ageVerificationError":"Vous devez avoir plus de {Ageminimum} ans pour envoyer ce formulaire.","alphabetic":"Ce champ ne peut contenir que des lettres","alphanumeric":"Ce champ ne peut contenir que des lettres et des chiffres.","appointmentSelected":"Vous avez sélectionné {time} le {date}","ccDonationMinLimitError":"Le montant minimum est de {minAmount} {currency}","ccInvalidCVC":"Le numéro CVC est invalide.","ccInvalidExpireDate":"La date d&amp;#039;expiration est invalide.","ccInvalidNumber":"Le numéro de la carte bancaire est invalide.","ccMissingDetails":"Please fill up the credit card details.","ccMissingDonation":"Veuillez saisir des valeurs numériques pour le montant des dons.","ccMissingProduct":"Veuillez sélectionner au moins un produit.","characterLimitError":"Trop de caractères. La limite est de","characterMinLimitError":"Nombre de caractères insuffisant. Le nombre minimum est de","confirmClearForm":"Êtes-vous certain de vouloir supprimer les inscriptions de ce formulaire ?","confirmEmail":"L&amp;#039;adresse e-mail ne correspond pas","currency":"Ce champ ne peut contenir que des valeurs monétaires.","cyrillic":"Ce champ ne peut contenir que des caractères cyrilliques","dateInvalid":"Ce format de date n&amp;#039;est pas valide. Le format de la date est {format}","dateInvalidSeparate":"Cette date n&amp;#039;est pas valide. Veuillez saisir une date valide {element}.","dateLimited":"Cette date est indisponible.","disallowDecimals":"Veuillez entrer un nombre entier.","dragAndDropFilesHere_infoMessage":"Glissez-déposez des fichiers ici","email":"Saisir une adresse courriel valide","fillMask":"La valeur du champ doit remplir le masque.","freeEmailError":"Les comptes e-mail gratuits ne sont pas autorisés","generalError":"Ce formulaire contient des erreurs. Veuillez les corriger avant de continuer.","generalPageError":"Cette page contient des erreurs. Veuillez les corriger avant de continuer.","gradingScoreError":"Le score total devrais être moins ou égal à","incompleteFields":"Des champs obligatoires ne sont pas remplis. Veuillez les compléter.","inputCarretErrorA":"Le nombre saisi ne peut pas être inférieur à la valeur minimum :","inputCarretErrorB":"Vous ne pouvez pas saisir une valeur supérieure à la valeur maximum :","justSoldOut":"Tout juste épuisé","lessThan":"Votre note doit être inférieure ou égale à","maxDigitsError":"Le nombre de chiffres maximum autorisé est de","maxFileSize_infoMessage":"Taille de fichier max.","maxSelectionsError":"The maximum number of selections allowed is ","minSelectionsError":"Le nombre minimum requis de sélections est de","multipleFileUploads_emptyError":"{file} est vide, veuillez sélectionner à nouveau les fichiers sans celui-ci.","multipleFileUploads_fileLimitError":"Seuls {fileLimit} téléchargements de fichiers sont autorisés.","multipleFileUploads_minSizeError":"{file} est trop petite, la taille de fichier minimale est {minSizeLimit}.","multipleFileUploads_onLeave":"Les fichiers sont en cours de téléchargement, si vous quittez maintenant le téléchargement sera annulé.","multipleFileUploads_sizeError":"{file} est trop volumineux, la taille maximale d&amp;#039;un fichier est de {sizeLimit}.","multipleFileUploads_typeError":"L&amp;#039;extension de {file} est invalide. Seules les extensions {extensions} sont autorisées.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","noSlotsAvailable":"Aucun emplacement disponible","notEnoughStock":"Pas assez de stock pour la sélection actuelle","notEnoughStock_remainedItems":"Pas assez de stock pour la sélection actuelle ({count} articles restants)","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","numeric":"Ce champ ne peut contenir que des valeurs numériques","pastDatesDisallowed":"La date ne doit pas se situer dans le passé.","pleaseWait":"Veuillez patienter.","required":"Ce champ est obligatoire.","requireEveryCell":"Toutes les cellules sont nécessaires.","requireEveryRow":"Chaque ligne est obligatoire.","requireOne":"Au moins un champ est requis","restrictedDomain":"This domain is not allowed","selectionSoldOut":"Sélection épuisée","slotUnavailable":"{heure} le {date} a été pris.Veuillez sélectionner un autre emplacement.","soldOut":"Epuisé","subProductItemsLeft":"({count} articles restants)","uploadExtensions":"Vous ne pouvez uploader que les fichiers suivants :","uploadFilesize":"La taille du fichier ne peut pas dépasser :","uploadFilesizemin":"la taille du fichier ne peut pas être inférieure à :","url":"Ce champ peut uniquement contenir une URL valide","validateEmail":"Vous devez valider cet e-mail","wordLimitError":"Trop de mots. Le nombre max. de mots est de","wordMinLimitError":"Nombre de mots insuffisants. Le minimum est de"});
+            setTimeout(function() {
+                JotForm.initMultipleUploads();
+            }, 2);
+            /*INIT-END*/
+        });
+
+        setTimeout(function() {
+            JotForm.paymentExtrasOnTheFly([null,{"description":"","labelText":"","name":"image1","qid":"1","text":"image1","type":"control_image"},{"name":"ltpgtltspanStylecolor","qid":"2","text":"DIRECTION DES TRANSPORTS ET DE LA PROTECTION DU PUBLIC SOUS-DIRECTION DE LA PROTECTION SANITAIRE ET DE L'ENVIRONNEMENT\r\nBureau des Actions de Prevention et de Protection Sanitaires : :12 quai de Gesvres, 75004 Paris tel : 01 49 96 33 81\r\nFormulaire de demande de debit de boissons temporaire Boissons fermentees non distillees (groupe III : vin, biere, cidre, champagne et boissons sans alcool)\r\nATTENTION : Ce formulaire doit etre retourne par mail dans un delai minimum de 15 jours avant la date de la manifestation. a l'adresse suivante :\r\npp-dtpp-sdpse-bapps-licence@interieur.gouv.fr Passe ce delai, la demande est susceptible de ne pas etre traitee.","type":"control_text"},{"description":"","name":"adresse","qid":"3","subLabel":"","text":"Adresse ","type":"control_textbox"},{"description":"","name":"telephone","qid":"4","text":"Telephone ","type":"control_phone"},{"description":"","name":"adresseMail","qid":"5","subLabel":"","text":"Adresse mail ","type":"control_textbox"},{"description":"","name":"nomDu","qid":"6","subLabel":"","text":"Nom du responsable de la buvette ","type":"control_textbox"},{"description":"","name":"nombreDe","qid":"7","subLabel":"","text":"Nombre de buvettes prevues","type":"control_textbox"},{"description":"","name":"aLoccasion","qid":"8","subLabel":"","text":"A l'occasion de ","type":"control_textbox"},{"name":"ltpgtltspanStylecolor9","qid":"9","text":"Description de l'evenement (concept, jauge maximale de public susceptible d'etre accueilli a un instant T dans les locaux, etc) :","type":"control_text"},{"description":"","name":"descriptionDe","qid":"10","subLabel":"","text":"Description de l'evenement (concept, jauge maximale de public susceptible d'etre accueilli a un instant T dans les locaux, etc) ","type":"control_textarea"},{"description":"","name":"adresseDe","qid":"11","subLabel":"","text":"Adresse de l'evenement ","type":"control_textbox"},{"description":"","name":"dates","qid":"12","text":"Date(s) ","type":"control_datetime"},{"description":"","name":"heures","qid":"13","subLabel":"","text":"Heures ","type":"control_textbox"},null,{"name":"republiqueFrancaise","qid":"15","text":"REPUBLIQUE FRANCAISE","type":"control_head"},{"name":"ltpgtltspanStylecolor16","qid":"16","text":"Liberte Egalite Fraternite PREFECTURE DE POLICE - 1 bis, rue de Lutece 75195 PARIS CEDEX 04 - Tel. : 3430 (0,06 €\u002Fmin + prix d'un appel) http:\u002F\u002Fwww.prefecturedepolice.paris mel : courriel.prefecturepoliceparis@interieur.gouv.fr","type":"control_text"},{"name":"submit","qid":"17","text":"Submit","type":"control_button"},{"description":"","name":"autorisationsPrecedemment","qid":"18","text":"Autorisation(s) precedemment obtenue(s)","type":"control_radio"},null,null,{"description":"","name":"siOui","qid":"21","subLabel":"","text":"Si oui, nombre et dates :","type":"control_textbox"},{"description":"","name":"a","qid":"22","subLabel":"(ville)","text":"A","type":"control_textbox"},{"description":"","name":"le","qid":"23","text":"Le","type":"control_datetime"},{"description":"","name":"autorisationMunicipale","qid":"24","subLabel":"","text":"Autorisation municipale d'occupation du domaine public ou contrat d'occupation des lieux","type":"control_fileupload"},{"description":"","name":"nomEt","qid":"25","subLabel":"","text":"Nom et qualite (societe, association ou particulier) du demandeur :","type":"control_textbox"}]);}, 20);
+    </script>
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/form-common.css?v=1461e8a
+"/>
+    <style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.47108"/>
+    <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_styles.css?3.3.47108" />
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.47108" />
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/stylebuilder/donationBox.css?v=3.3.47108">
+    <form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://eu-submit.jotform.com/submit/233063360977056" method="post" enctype="multipart/form-data" name="form_233063360977056" id="233063360977056" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="233063360977056" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1699020108031" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="buildDate" name="buildDate" value="1699020108031" />
+        <div id="formCoverLogo" style="margin-bottom:32px" class="form-cover-wrapper form-has-cover form-page-cover-image-align-center">
+            <div class="form-page-cover-image-wrapper" style="max-width:752px">
+                <div class="form-page-cover-image" style="height:140px;width:113px;background-image:url(&quot;https://www.jotform.com/uploads/amalesieux/form_files/magland.6544f32cbaa214.61491233.png&quot;);background-size:113px 140px" aria-label="Logo du formulaire"></div>
+            </div>
+        </div>
+        <div role="main" class="form-all">
+            <ul class="form-section page-section">
+                <li class="form-line" data-type="control_image" id="id_1">
+                    <div id="cid_1" class="form-input-wide" data-layout="full">
+                        <div style="text-align:center"><img alt="Image-1" loading="lazy" class="form-image" style="border:0" src="https://eu.jotform.com/uploads/amalesieux/form_files/image_6544f31c976d0.png?nc=1" tabindex="0" height="81px" width="59.04px" data-component="image" role="presentation" /></div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_2">
+                    <div id="cid_2" class="form-input-wide" data-layout="full">
+                        <div id="text_2" class="form-html" data-component="text" tabindex="0">
+                            <p><span style="color: #000000;">DIRECTION DES TRANSPORTS ET DE LA PROTECTION DU PUBLIC</span> <span style="color: #000000;">SOUS-DIRECTION DE LA PROTECTION SANITAIRE ET DE L'ENVIRONNEMENT</span></p>
+                            <p><span style="color: #000000;">Bureau des Actions de Prévention et de Protection Sanitaires : :12 quai de Gesvres, 75004 Paris tél : 01 49 96 33 81</span></p>
+                            <p><span style="color: #000000;">Formulaire de demande de débit de boissons temporaire</span> <span style="color: #000000;">Boissons fermentées non distillées (groupe III : vin, bière, cidre, champagne et boissons sans alcool)</span></p>
+                            <p><span style="color: #000000;">ATTENTION : Ce formulaire doit être retourné par mail dans un délai minimum de 15 jours avant</span> <span style="color: #000000;">la date de la manifestation. à l'adresse suivante :</span></p>
+                            <p><span style="color: #000000;">pp-dtpp-sdpse-bapps-licence@interieur.gouv.fr</span> <span style="color: #000000;">Passé ce délai, la demande est susceptible de ne pas être traitée.</span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_25"><label class="form-label form-label-top form-label-auto" id="label_25" for="input_25" aria-hidden="false"> Nom et qualité (société, association ou particulier) du demandeur : </label>
+                    <div id="cid_25" class="form-input-wide" data-layout="half"> <input type="text" id="input_25" name="q25_nomEt" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_25" value="{{ app.user.name }}" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_3"><label class="form-label form-label-top form-label-auto" id="label_3" for="input_3" aria-hidden="false"> Adresse de l'association</label>
+                    <div id="cid_3" class="form-input-wide" data-layout="half"> <input type="text" id="input_3" name="q3_adresse" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_3" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_phone" id="id_4"><label class="form-label form-label-top form-label-auto" id="label_4" for="input_4_full"> Téléphone </label>
+                    <div id="cid_4" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_4_full" name="q4_telephone[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[Fill Mask]" data-defaultvalue="" autoComplete="section-input_4 tel-national" style="width:310px" data-masked="true" placeholder="00-00-00-00-00" data-component="phone" aria-labelledby="label_4" value="{{ app.user.phone }}" /></span> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Adresse mail </label>
+                    <div id="cid_5" class="form-input-wide" data-layout="half"> <input type="text" id="input_5" name="q5_adresseMail" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_5" value="{{ app.user.email }}" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_6"><label class="form-label form-label-top form-label-auto" id="label_6" for="input_6" aria-hidden="false"> Nom du responsable de la buvette </label>
+                    <div id="cid_6" class="form-input-wide" data-layout="half"> <input type="text" id="input_6" name="q6_nomDu" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_6" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_7"><label class="form-label form-label-top form-label-auto" id="label_7" for="input_7" aria-hidden="false"> Nombre de buvettes prévues </label>
+                    <div id="cid_7" class="form-input-wide" data-layout="half"> <input type="text" id="input_7" name="q7_nombreDe" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_7" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8" aria-hidden="false"> À l'occasion de </label>
+                    <div id="cid_8" class="form-input-wide" data-layout="half"> <input type="text" id="input_8" name="q8_aLoccasion" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_8" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_9">
+                    <div id="cid_9" class="form-input-wide" data-layout="full">
+                        <div id="text_9" class="form-html" data-component="text" tabindex="0">
+                            <p><span style="color: #000000;">Description de l'événement (concept, jauge maximale de public susceptible d'être accueilli à </span><span style="color: #000000;">un instant T dans les locaux, etc) :</span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textarea" id="id_10"><label class="form-label form-label-top form-label-auto" id="label_10" for="input_10" aria-hidden="false"> Description de l'événement (concept, jauge maximale de public susceptible d'être accueilli à un instant T dans les locaux, etc) </label>
+                    <div id="cid_10" class="form-input-wide" data-layout="full"> <textarea id="input_10" class="form-textarea" name="q10_descriptionDe" style="width:40px;height:6px" data-component="textarea" aria-labelledby="label_10"></textarea> </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_11"><label class="form-label form-label-top form-label-auto" id="label_11" for="input_11" aria-hidden="false"> Adresse de l'événement </label>
+                    <div id="cid_11" class="form-input-wide" data-layout="half"> <input type="text" id="input_11" name="q11_adresseDe" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_11" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_datetime" id="id_12"><label class="form-label form-label-top form-label-auto" id="label_12" for="lite_mode_12" aria-hidden="false"> Date(s) </label>
+                    <div id="cid_12" class="form-input-wide" data-layout="half">
+                        <div data-wrapper-react="true">
+                            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="month_12" name="q12_dates[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_12 sublabel_12_month" /><span class="date-separate" aria-hidden="true"> /</span><label class="form-sub-label" for="month_12" id="sublabel_12_month" style="min-height:13px" aria-hidden="false">Mois</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="day_12" name="q12_dates[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_12 sublabel_12_day" /><span class="date-separate" aria-hidden="true"> /</span><label class="form-sub-label" for="day_12" id="sublabel_12_day" style="min-height:13px" aria-hidden="false">Jour</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="year_12" name="q12_dates[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" autoComplete="off" aria-labelledby="label_12 sublabel_12_year" /><label class="form-sub-label" for="year_12" id="sublabel_12_year" style="min-height:13px" aria-hidden="false">Année</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[limitDate, validateLiteDate]" id="lite_mode_12" size="12" data-maxlength="12" maxLength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="/" placeholder="MM/JJ/AAAA" data-placeholder="MM/DD/YYYY" autoComplete="off" aria-labelledby="label_12 sublabel_12_litemode" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Form not found" id="input_12_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" /><label class="form-sub-label" for="lite_mode_12" id="sublabel_12_litemode" style="min-height:13px" aria-hidden="false">Date</label></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_13"><label class="form-label form-label-top form-label-auto" id="label_13" for="input_13" aria-hidden="false"> Heures </label>
+                    <div id="cid_13" class="form-input-wide" data-layout="half"> <input type="text" id="input_13" name="q13_heures" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:20px" size="20" data-component="textbox" aria-labelledby="label_13" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_radio" id="id_18"><label class="form-label form-label-top form-label-auto" id="label_18" for="input_18" aria-hidden="false"> Autorisation(s) précédemment obtenue(s) </label>
+                    <div id="cid_18" class="form-input-wide" data-layout="full">
+                        <div class="form-single-column" role="group" aria-labelledby="label_18" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_18" class="form-radio" id="input_18_0" name="q18_autorisationsPrecedemment" value="Oui" /><label id="label_input_18_0" for="input_18_0">Oui</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_18" class="form-radio" id="input_18_1" name="q18_autorisationsPrecedemment" value="Non" /><label id="label_input_18_1" for="input_18_1">Non</label></span></div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_21"><label class="form-label form-label-top form-label-auto" id="label_21" for="input_21" aria-hidden="false"> Si oui, nombre et dates : </label>
+                    <div id="cid_21" class="form-input-wide" data-layout="half"> <input type="text" id="input_21" name="q21_siOui" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_21" value="" /> </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_24"><label class="form-label form-label-top form-label-auto" id="label_24" for="input_24" aria-hidden="false"> Autorisation municipale d'occupation du domaine public ou contrat d'occupation des lieux </label>
+                    <div id="cid_24" class="form-input-wide" data-layout="full">
+                        <div class="jfQuestion-fields" data-wrapper-react="true">
+                            <div class="jfField isFilled">
+                                <div class="jfUpload-wrapper">
+                                    <div class="jfUpload-container">
+                                        <div class="jfUpload-button-container">
+                                            <div class="jfUpload-button" aria-hidden="true" tabindex="0" style="display:none" data-version="v2">Parcourir les fichiers<div class="jfUpload-heading forDesktop">Glissez-déposez des fichiers ici</div>
+                                                <div class="jfUpload-heading forMobile">Choisissez un fichier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jfUpload-files-container">
+                                        <div class="validate[multipleUpload]"><input type="file" id="input_24" name="q24_autorisationMunicipale[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" aria-label="Parcourir les fichiers" /></div>
+                                    </div>
+                                </div>
+                                <div data-wrapper-react="true"></div>
+                            </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_22"><label class="form-label form-label-top form-label-auto" id="label_22" for="input_22" aria-hidden="false"> A </label>
+                    <div id="cid_22" class="form-input-wide" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_22" name="q22_a" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_22 sublabel_input_22" value="" /><label class="form-sub-label" for="input_22" id="sublabel_input_22" style="min-height:13px" aria-hidden="false">(ville)</label></span> </div>
+                </li>
+                <li class="form-line" data-type="control_datetime" id="id_23"><label class="form-label form-label-top form-label-auto" id="label_23" for="lite_mode_23" aria-hidden="false"> Le </label>
+                    <div id="cid_23" class="form-input-wide" data-layout="half">
+                        <div data-wrapper-react="true">
+                            <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="month_23" name="q23_le[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_23 sublabel_23_month" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="month_23" id="sublabel_23_month" style="min-height:13px" aria-hidden="false">Mois</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="day_23" name="q23_le[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" autoComplete="off" aria-labelledby="label_23 sublabel_23_day" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="day_23" id="sublabel_23_day" style="min-height:13px" aria-hidden="false">Jour</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[limitDate]" id="year_23" name="q23_le[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" autoComplete="off" aria-labelledby="label_23 sublabel_23_year" /><label class="form-sub-label" for="year_23" id="sublabel_23_year" style="min-height:13px" aria-hidden="false">Année</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[limitDate, validateLiteDate]" id="lite_mode_23" size="12" data-maxlength="12" maxLength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" placeholder="MM-JJ-AAAA" data-placeholder="MM-DD-YYYY" autoComplete="off" aria-labelledby="label_23 sublabel_23_litemode" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Form not found" id="input_23_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" /><label class="form-sub-label" for="lite_mode_23" id="sublabel_23_litemode" style="min-height:13px" aria-hidden="false">Date</label></span>
+                        </div>
+                    </div>
+                </li>
+                <li id="cid_15" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-small">
+                        <div class="header-text httal htvam">
+                            <h3 id="header_15" class="form-header" data-component="header">RÉPUBLIQUE FRANÇAISE</h3>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_text" id="id_16">
+                    <div id="cid_16" class="form-input-wide" data-layout="full">
+                        <div id="text_16" class="form-html" data-component="text" tabindex="0">
+                            <p><span style="color: #000000;">Liberté Égalité Fraternité</span> <span style="color: #000000;">PREFECTURE DE POLICE - 1 bis, rue de Lutèce 75195 PARIS CEDEX 04 - Tél. : 3430 (0,06 €/min + prix d'un appel)</span> <span style="color: #000000;">http://www.prefecturedepolice.paris mél : courriel.prefecturepoliceparis@interieur.gouv.fr</span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_button" id="id_17">
+                    <div id="cid_17" class="form-input-wide" data-layout="full">
+                        <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_preview_17" type="button" class="form-submit-preview jf-form-buttons" data-component="button"><img alt="PDF Preview" src="https://cdn.jotfor.ms//assets/img/theme-assets/5ca4930530899c64ff77cfa1/previewPDF-icon.svg" /><span id="span_preview_17" class="span_preview">Preview PDF</span></button><span> </span><button id="input_17" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Submit</button></div>
+                    </div>
+                </li>
+                <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+            </ul>
+        </div>
+        <script>
+            JotForm.showJotFormPowered = "new_footer";
+        </script>
+        <script>
+            JotForm.poweredByText = "Propulsé par Jotform";
+        </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="233063360977056" />
+        <script type="text/javascript">
+            var all_spc = document.querySelectorAll("form[id='233063360977056'] .si" + "mple" + "_spc");
+            for (var i = 0; i < all_spc.length; i++)
+            {
+                all_spc[i].value = "233063360977056-233063360977056";
+            }
+        </script>
+    </form><script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.forwardToEu=true;</script><script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.47108"></script>
+    <script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.47108"></script>
+    <script type="text/javascript">JotForm.isNewSACL=true;</script>
+
+{% endblock %}

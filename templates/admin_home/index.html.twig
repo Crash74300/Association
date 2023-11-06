@@ -8,14 +8,20 @@
 
 
 <h1 class="text-center m-3">Administration des associations</h1>
+    {% for message in app.flashes('notice')%}
+        <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
+    {% endfor %}
     <section class="row p-5">
         <div class="col-md-4 border border-2 border-dark-subtle p-2">
-            {% if communications|length == 0 %}
-                <h5 class="text-center text-warning">Vous êtes à jour des demandes.</h5>
+            {% if finish|length == communications|length %}
+                <h5 class="text-center text-warning">Aucune demande en attente</h5>
+            {% else %}
+                <h5 class="text-center text-warning">Demande de communication à traiter</h5>
             {% endif %}
                 {% for communication in communications %}
+                    {% if communication.finish != true %}
                 <p class="list-group-item text-bg-danger rounded p-2 text-center" aria-disabled="true">Demande de communication de l'association {{ communication.name }} <a class="btn btn-sm btn-primary m-2" href="{{path('app_admin_communication')}}" >Voir</a></p>
-
+                    {% endif %}
                 {% endfor %}
             </ul>
 
@@ -74,19 +80,20 @@
                     </div>
                 </div>
             </div>
+            {% if admin %}
             <div class="row p-2">
                 <div class="">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">Créer un nouvel administrateur</h5>
-                            <p class="card-text">Outil de création d'un nouvel administrateur.</p>
-                            <p class="card-text text-danger">Attention!!<br> Un administrateur aura le contrôle total de l'application.</p>
-                            <a href="{{ path('app_add_admin') }}" class="btn btn-danger">Créer</a>
-
+                            <h5 class="card-title">Gestion des administrateur</h5>
+                            <p class="card-text">Outil de gestion des administrateurs.</p>
+                            <a href="{{ path('app_add_admin') }}" class="btn btn-danger">Créer un administrateur</a>
+                            <a href="{{ path('app_admin_edit') }}" class="btn btn-danger">Gérer les administrateurs</a>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </section>
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommunicationRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -40,6 +41,15 @@ class Communication
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date_start = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date_stop = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $finish = null;
 
     public function getId(): ?int
     {
@@ -150,6 +160,42 @@ class Communication
     public function setPhone(?string $phone): static
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getDateStart(): ?\DateTimeInterface
+    {
+        return $this->date_start;
+    }
+
+    public function setDateStart(\DateTimeInterface $date_start): static
+    {
+        $this->date_start = $date_start;
+
+        return $this;
+    }
+
+    public function getDateStop(): ?\DateTimeInterface
+    {
+        return $this->date_stop;
+    }
+
+    public function setDateStop(\DateTimeInterface $date_stop): static
+    {
+        $this->date_stop = $date_stop;
+
+        return $this;
+    }
+
+    public function isFinish(): ?bool
+    {
+        return $this->finish;
+    }
+
+    public function setFinish(?bool $finish): static
+    {
+        $this->finish = $finish;
 
         return $this;
     }

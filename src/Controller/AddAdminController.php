@@ -37,6 +37,8 @@ class AddAdminController extends AbstractController
             $user->setRoles($role);
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+            $this->addFlash('notice', "L'administrateur à bien été créé.");
+            return $this->redirectToRoute('app_admin_home');
         }
 
         return $this->render('add_admin/index.html.twig', [

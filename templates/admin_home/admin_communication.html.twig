@@ -9,26 +9,34 @@
     <div class="text-center mb-5">
 
         <h2 class="text-center m-3">Gestion des demandes</h2>
-        {% if communications|length == 0 %}
-        <p class="text-center">Il n'y a pas de demande en attente</p>
-        {% endif %}
+
+
+        <a href="{{path('app_admin_communication_finish')}}" class="btn btn-primary">Voir les demandes archivées</a>
     </div>
     {% for message in app.flashes('notice')%}
         <div class="container alert alert-info text-center justify-content-center w-50">{{ message }}</div>
     {% endfor %}
 
     <!--COMMUNICATION-->
-    {% if communications|length > 0 %}
-        <h1 class="text-center text-warning">Demande de communication</h1>
-    {% endif %}
-    <div class="row  justify-content-center">
+
+    <div class="row justify-content-center">
+{% if finish|length == communications|length %}
+    <h1 class="text-center text-warning">Aucune demande en attente</h1>
+        {% else %}
+            <h1 class="text-center text-warning">Demande de communication à traiter</h1>
+        {% endif %}
         {% for communication in communications %}
+
+            {% if communication.finish != true %}
+
             <div class="col-11 mt-3">
                 <div class="card bg-dark-subtle" >
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 text-center">
+
                                 <div class="row">
+
                                     <h5 class="card-title col-12 col-lg-4 text-info">Demande de l'association {{ communication.name }}</h5>
                                     <h5 class="card-title col-12 col-lg-4">Téléphone: {{ communication.phone }}</h5>
                                     <h5 class="card-title col-12 col-lg-4">Email: {{ communication.email }}</h5>
@@ -40,6 +48,7 @@
                             <div class="col-12 text-center">
                                 <h5 class="text-info">Description de la demande</h5>
                                 <p class="">{{ communication.description}}</p>
+                                <p class="">Demande de publication du {{ communication.dateStart|date("m/d/Y")}} au {{ communication.dateStop|date("m/d/Y")}}</p>
                             </div>
                             <div class="col-12 text-center">
                                 <img style="max-width: 150px" src="{{ vich_uploader_asset(communication, 'imageFile1') }}">
@@ -49,14 +58,14 @@
 
                         <div class="text-center p-3">
 
-                            <a class="btn btn-sm btn-danger"  href="{{path('app_remove_communication', {'id' : communication.id})}}" >Supprimer</a>
+                            <a class="btn btn-sm btn-success"  href="{{path('app_stock_communication', {'id' : communication.id})}}" >Demande traitée</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
+            {% endif %}
         {% endfor %}
+
     </div>
 
 
