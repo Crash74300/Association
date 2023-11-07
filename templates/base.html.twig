@@ -12,7 +12,7 @@
     {% if (app.user) %}
 
     <header>
-        <nav class="navbar bg-primary bg-gradient p-2" style="--bs-bg-opacity: .5;">
+        <nav class="navbar bg-info bg-gradient p-2" style="--bs-bg-opacity: .5;">
             <form class="container-fluid">
 <div>
 {% if (app.user.roles[0] == 'ROLE_ADMIN') %}
@@ -22,7 +22,7 @@
 {% endif %}{% block nav %}{% endblock %}
 </div>
                 <div><img class="navbar-brand d-none d-md-block" height="70" src="{{ asset('assets/images/site/logo_magland.png') }}"></div>
-                <div><img class="navbar-brand d-none d-md-block" height="50" src="{{ asset('assets/images/site/logo_flaine.jpg') }}"></div>
+                <div><img class="navbar-brand d-none d-md-block" height="50" src="{{ asset('assets/images/site/logo_flaine.png') }}"></div>
                 <a class="btn btn-sm btn-danger float-end" href="{{ path('app_logout') }}" type="button">Se déconnecter</a>
             </form>
         </nav>
